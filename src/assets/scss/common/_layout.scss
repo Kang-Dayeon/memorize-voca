@@ -1,0 +1,22 @@
+body{
+  background-color: #f7f7f7;
+}
+.header{
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  &__title{
+    font-size: 22px;
+    font-weight: bold;
+    color: #5729e3;
+  }
+}
+
+.app-content{
+  position: relative;
+  &__inner{
+    margin: 0 auto;
+    max-width: 500px;
+    min-height: 100vh;
+  }
+}

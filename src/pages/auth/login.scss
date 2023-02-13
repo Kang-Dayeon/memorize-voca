@@ -1,0 +1,21 @@
+.login{
+  &__wrap{
+    padding: 50px 25px;
+    border-radius: 30px;
+    background-color: #fff;
+  }
+  &__title{
+    color: #5729e3;
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  input{
+    display: inline-block;
+    padding: 5px 7px;
+    border: none;
+    background-color: #fff;
+  }
+}
