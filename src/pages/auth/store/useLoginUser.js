@@ -1,9 +1,13 @@
 import {atom, useRecoilState} from 'recoil'
+import {recoilPersist} from 'recoil-persist'
 import {users} from '../../../database/users'
+
+const {persistAtom} = recoilPersist()
 
 const loginUserState = atom({
   key: 'loginUserState',
-  default: {}
+  default: {},
+  effects_UNSTABLE: [persistAtom]
 })
 
 const usersState = atom({
@@ -13,7 +17,8 @@ const usersState = atom({
 
 const isLoginState = atom({
   key: 'isLoginState',
-  default: false
+  default: false,
+  effects_UNSTABLE: [persistAtom]
 })
 
 export const useLoginUserStore = () => {
