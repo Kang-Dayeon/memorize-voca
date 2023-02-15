@@ -17,7 +17,9 @@ const Login = () => {
     } else if(!users.some((user) => user.password === password)) {
       alert('비밀번호가 일치하지 않습니다')
     } else {
-      setLoginUser(users.filter((user) => (user.loginId === loginId) && (user.password === password)))
+      const find = users.find((user) => (user.loginId === loginId) && (user.password === password))
+      console.log(find)
+      setLoginUser({...find})
       setIsLogin(true)
     }
   }

@@ -1,5 +1,4 @@
 .words{
-  padding: 10px 20px;
   &-list{
     margin-top: 15px;
     &__depth{
@@ -39,18 +38,12 @@
 }
 
 .step{
-  &-title{
-    font-size: 14px;
-    font-weight: bold;
-    color: #5729e3;
-  }
   &-list{
     margin-top: 10px;
     border-radius: 20px;
     background-color: #5729e3;
     -webkit-box-shadow:inset 2px 2px 5px 1px rgba(47,23,112,0.3);
     box-shadow:inset 2px 2px 5px 1px rgba(47,23,112,0.3);
-
     &__title{
       font-weight: bold;
       color: #fff;

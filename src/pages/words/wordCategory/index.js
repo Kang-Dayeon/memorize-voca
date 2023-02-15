@@ -1,14 +1,16 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useWords} from '../store/useWords'
 import './wordCategory.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBookBookmark} from '@fortawesome/free-solid-svg-icons'
 
 const WordCategory = () => {
+  // ** react
   const navigate = useNavigate()
 
-  const {words,setSelectedCategory} = useWords()
+  // ** recoil
+  const {words} = useWords()
 
   const handleNavigate = (key) => {
     navigate('/steps/' + key)
@@ -21,7 +23,7 @@ const WordCategory = () => {
           {
             words.map((list) => {
               return (
-                <li className="words-list" onClick={() => handleNavigate(list.category)}>
+                <li className="words-list" onClick={() => handleNavigate(list.id)}>
                   <div className="words-title">
                     <span className="words-title__icon">
                       <FontAwesomeIcon icon={faBookBookmark} />
@@ -29,7 +31,7 @@ const WordCategory = () => {
                     {list.category}
                   </div>
                 </li>
-                )
+              )
             })
           }
         </ul>

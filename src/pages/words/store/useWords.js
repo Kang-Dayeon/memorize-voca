@@ -12,25 +12,27 @@ const wordsState = atom({
 
 const selectedCategoryState = atom({
   key: 'selectedCategoryState',
-  default: {}
+  default: null,
+  effects_UNSTABLE: [persistAtom]
 })
 
-const stepState = atom({
-  key: 'stepState',
-  default: null
+const selectedStepState = atom({
+  key: 'selectedStepState',
+  default: null,
+  effects_UNSTABLE: [persistAtom]
 })
 
 export const useWords = () => {
   const [words, setWords] = useRecoilState(wordsState)
   const [selectedCategory, setSelectedCategory] = useRecoilState(selectedCategoryState)
-  const [steps, setSteps] = useRecoilState(stepState)
+  const [selectedStep, setSelectedStep] = useRecoilState(selectedStepState)
 
   return{
     words,
     setWords,
     selectedCategory,
     setSelectedCategory,
-    steps,
-    setSteps
+    selectedStep,
+    setSelectedStep
   }
 }

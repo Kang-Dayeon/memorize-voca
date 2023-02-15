@@ -6,7 +6,7 @@ const {persistAtom} = recoilPersist()
 
 const loginUserState = atom({
   key: 'loginUserState',
-  default: {},
+  default: null,
   effects_UNSTABLE: [persistAtom]
 })
 

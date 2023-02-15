@@ -1,8 +1,10 @@
 export const words = [
   {
+    id: 1,
     category: 'Middle School',
     steps: [
       {
+        id: 1,
         name: 'Level 01',
         learn: false,
         words: [
@@ -39,6 +41,7 @@ export const words = [
         ]
       },
       {
+        id: 2,
         name: 'Level 02',
         learn: false,
         words: [
@@ -77,9 +80,11 @@ export const words = [
     ]
   },
   {
+    id: 2,
     category: 'High School',
     steps: [
       {
+        id: 1,
         name: 'Level 01',
         learn: false,
         words: [
@@ -116,6 +121,7 @@ export const words = [
         ]
       },
       {
+        id: 2,
         name: 'Level 02',
         learn: false,
         words: [
