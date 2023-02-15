@@ -36,16 +36,16 @@ const SlickSlider = (props) => {
   }
 
   return (
+    <div className="slide-wrap">
       <Slider {...settings}>
         {
           words ?
           words.map((item) => {
-            return (
-              <CustomSlide item={item} />
-            )
-          }) : ''
+            return <CustomSlide item={item} />
+          }) : <></>
         }
       </Slider>
+    </div>
   )
 }
 

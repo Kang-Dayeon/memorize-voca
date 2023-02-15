@@ -1,57 +1,65 @@
-.slide-contents{
-  margin: 0 auto;
-  padding: 50px 25px;
-  width: 90%;
-  background-color: #fff;
-  border-radius: 30px;
-  text-align: center;
-  &__title{
-    font-size: 28px;
+.slide{
+  &-wrap{
+    margin: 0 auto;
+    width: 90%;
   }
-  &__text{
-    position: relative;
-    margin-top: 25px;
-    &:after{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #fff;
-      color: #a7a6a6;
-      border: 1px solid #a7a6a6;
-      cursor: pointer;
-      content: 'Look meaning';
+  &-contents{
+    margin: 0 auto;
+    padding: 50px 25px;
+    width: 95%;
+    min-height: 250px;
+    background-color: #fff;
+    border-radius: 30px;
+    text-align: center;
+    &__title{
+      font-size: 28px;
     }
-    &.active{
+    &__text{
+      position: relative;
+      margin-top: 25px;
       &:after{
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100px;
+        background-color: #fff;
+        color: #a7a6a6;
+        border: 1px solid #a7a6a6;
+        cursor: pointer;
+        content: 'Look meaning';
+      }
+      &.active{
+        &:after{
+          display: none;
+        }
       }
     }
-  }
-  &__meaning{
-    position: relative;
-    display: inline-block;
-    font-weight: bold;
-    &:after{
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background-color: #9f7dfe;
-      opacity: 0.5;
-      content: '';
+    &__meaning{
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+      &:after{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: #9f7dfe;
+        opacity: 0.5;
+        content: '';
+      }
     }
-  }
-  &__explanation{
-    margin-top: 10px;
-    font-size: 12px;
-    line-height: 1.5;
-    color: #a7a6a6;
+    &__explanation{
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #a7a6a6;
+    }
   }
 }
 

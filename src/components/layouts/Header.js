@@ -1,13 +1,21 @@
 import React, {useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useLocation} from 'react-router-dom'
+// ** style
 import './../../assets/scss/common.scss'
+// ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAngleLeft} from '@fortawesome/free-solid-svg-icons'
+// ** store
 import {useLoginUserStore} from '../../pages/auth/store/useLoginUser'
 
 const Header = () => {
+  // ** react
   const navigate = useNavigate()
+  const location = useLocation()
+
+  // ** recoil
   const {users,setUsers,loginUser} = useLoginUserStore()
+  
 
   useEffect(() => {
     if(loginUser){
@@ -20,9 +28,12 @@ const Header = () => {
   return (
     <div className="header">
       <div className="back-arrow">
-        <button className="btn" onClick={() => navigate(-1)}>
-          <FontAwesomeIcon icon={faAngleLeft} />
-        </button>
+        {
+          ((location.pathname === '/login') || (location.pathname === '/wordCategory')) ? <></> 
+          : <button className="btn" onClick={() => navigate(-1)}>
+              <FontAwesomeIcon icon={faAngleLeft} />
+            </button>
+        }
       </div>
       <h1 className="header__title">Memorize Words</h1>
     </div>

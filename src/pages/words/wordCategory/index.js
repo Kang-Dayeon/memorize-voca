@@ -1,7 +1,10 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
+// ** store
 import {useWords} from '../store/useWords'
+// ** style
 import './wordCategory.scss'
+// ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faBookBookmark} from '@fortawesome/free-solid-svg-icons'
 
