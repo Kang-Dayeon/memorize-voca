@@ -39,6 +39,8 @@
 
 .step{
   &-list{
+    position: relative;
+    padding: 25px 15px;
     margin-top: 10px;
     border-radius: 20px;
     background-color: #5729e3;
@@ -56,33 +58,35 @@
         display: block;
       }
     }
-    a{
-      display: block;
-      position: relative;
-      padding: 25px 15px;
-      &:after{
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        width: 36px;
-        height: 36px;
-        background-color: #f7f7f7;
-        border-radius: 50%;
-        transform: translateY(-50%);
-        content: ''
-      }
-      span{
-        display: none;
-        position: absolute;
-        top: 50%;
-        right: 25px;
-        z-index: 10;
-        font-size: 25px;
-        color: #7547FF;
-        border-radius: 50%;
-        line-height: 1;
-        transform: translateY(-50%);
-      }
+    &:after{
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      background-color: #f7f7f7;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      content: ''
     }
+    span{
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: 25px;
+      z-index: 10;
+      font-size: 25px;
+      color: #7547FF;
+      border-radius: 50%;
+      line-height: 1;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.memorize{
+  .sub-title{
+    margin-bottom: 50px;
+    text-align: center;
   }
 }

@@ -1,10 +1,10 @@
 import './login.scss'
 import React from 'react'
-import {useLoginUserStore} from './store/useLoginUser'
+import {useUserStore} from './store/useUser'
 import useInput from '../../hooks/useInput'
 
 const Login = () => {
-  const {users, setLoginUser, setIsLogin} = useLoginUserStore()
+  const {users, setLoginUser, setIsLogin} = useUserStore()
 
   const [value, setValue] = useInput({
     loginId: '',

@@ -1,7 +1,8 @@
-import React from 'react'
+// ** react hook
+import React, {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 // ** store
-import {useWords} from '../store/useWords'
+import {useUserStore} from '../../auth/store/useUser'
 // ** style
 import './wordCategory.scss'
 // ** icon
@@ -13,17 +14,26 @@ const WordCategory = () => {
   const navigate = useNavigate()
 
   // ** recoil
-  const {words} = useWords()
+  const {loginUser} = useUserStore()
+
+  // ** state
+  const [words, setWords] = useState(null)
 
   const handleNavigate = (key) => {
     navigate('/steps/' + key)
   }
 
+  useEffect(() => {
+    if(loginUser){
+      setWords(loginUser.words)
+    }
+  }, [loginUser])
+
   return (
     <>
       <div className="words">
         <ul className="words-list__wrap">
-          {
+          {words ?
             words.map((list) => {
               return (
                 <li className="words-list" onClick={() => handleNavigate(list.id)}>
@@ -35,7 +45,7 @@ const WordCategory = () => {
                   </div>
                 </li>
               )
-            })
+            }) : <></>
           }
         </ul>
       </div>

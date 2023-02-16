@@ -21,7 +21,7 @@ const isLoginState = atom({
   effects_UNSTABLE: [persistAtom]
 })
 
-export const useLoginUserStore = () => {
+export const useUserStore = () => {
   const [loginUser, setLoginUser] = useRecoilState(loginUserState)
   const [users, setUsers] = useRecoilState(usersState)
   const [isLogin, setIsLogin] = useRecoilState(isLoginState)

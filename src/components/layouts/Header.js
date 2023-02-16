@@ -1,3 +1,4 @@
+// ** react hook
 import React, {useEffect} from 'react'
 import {useNavigate, useLocation} from 'react-router-dom'
 // ** style
@@ -6,7 +7,7 @@ import './../../assets/scss/common.scss'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAngleLeft} from '@fortawesome/free-solid-svg-icons'
 // ** store
-import {useLoginUserStore} from '../../pages/auth/store/useLoginUser'
+import {useUserStore} from '../../pages/auth/store/useUser'
 
 const Header = () => {
   // ** react
@@ -14,8 +15,7 @@ const Header = () => {
   const location = useLocation()
 
   // ** recoil
-  const {users,setUsers,loginUser} = useLoginUserStore()
-  
+  const {users,setUsers,loginUser} = useUserStore()
 
   useEffect(() => {
     if(loginUser){
