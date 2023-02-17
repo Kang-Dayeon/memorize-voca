@@ -1,8 +1,6 @@
 // ** react hook
 import React, {useEffect} from 'react'
 import {useNavigate, useLocation} from 'react-router-dom'
-// ** style
-import './../../assets/scss/common.scss'
 // ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAngleLeft} from '@fortawesome/free-solid-svg-icons'

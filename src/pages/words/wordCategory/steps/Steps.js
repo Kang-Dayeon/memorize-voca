@@ -5,8 +5,6 @@ import {useParams, useNavigate} from 'react-router-dom'
 import {useWords} from '../../store/useWords'
 import useUpdateData from '../../store/useUpdateData'
 import {useUserStore} from '../../../auth/store/useUser'
-// ** style
-import './../wordCategory.scss'
 // ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCheck} from '@fortawesome/free-solid-svg-icons'
@@ -42,16 +40,16 @@ const Steps = () => {
 
   return (
     <>
-      <div className="step">
+      <div className="steps">
         <h4 className="sub-title">{selectedCategory.category}</h4>
-        <ul className="step-list__wrap">
+        <ul className="list__wrap">
           {selectedCategory ?
             selectedCategory.steps.map((item) => {
               return (
-                <li className={`step-list 
+                <li className={`list 
                 ${(item.learn) ? 'active' : ''}`
                 } onClick={() => handleNavigate(item.id)}>
-                  <p className="step-list__title">{item.name}</p>
+                  <p className="list__title">{item.name}</p>
                   <span><FontAwesomeIcon icon={faCheck} /></span>
                 </li>
               )

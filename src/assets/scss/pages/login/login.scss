@@ -10,12 +10,12 @@
     min-width: 200px;
     height: 300px;
     border-radius: 30px;
-    background-color: #fff;
+    background-color: $color-white;
     -webkit-box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.1);
     box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.1);
   }
   &__title{
-    color: #5729e3;
+    color: $color-main;
     text-align: center;
   }
   &__form{

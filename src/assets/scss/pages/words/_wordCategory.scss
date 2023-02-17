@@ -1,0 +1,12 @@
+.wordsCategory{
+  .list{
+    &__icon{
+      padding-top: 5px;
+      width: 30px;
+      height: 30px;
+      background-color: $color-main;
+      color: $color-white;
+      border-radius: 50%;
+    }
+  }
+}

@@ -1,5 +1,3 @@
-import './../../assets/scss/common.scss'
-
 const ContentWrapper = ({children}) => {
   return (
     <div className="app-content">

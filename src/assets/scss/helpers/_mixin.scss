@@ -1,0 +1,15 @@
+@mixin  positionAlign($top: 0, $left: 0, $translateX: 0, $translateY: 0){
+  position: absolute;
+  @if $top != 0 {
+    top: $top;
+  }
+  @if $left != 0 {
+    left: $left;
+  }
+  @if $translateX != 0 {
+    transform: translateX($translateX);
+  }
+  @if $translateY != 0 {
+    transform: translateY($translateY);
+  }
+}

@@ -2,9 +2,9 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 // ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faUser, faHouse} from '@fortawesome/free-solid-svg-icons'
+import {faUser, faHouse, faSquarePlus} from '@fortawesome/free-solid-svg-icons'
 
-const Menu = () => {
+const Navigation = () => {
   return (
     <div className="anb">
       <div className="anb__wrap">
@@ -21,7 +21,7 @@ const Menu = () => {
           </li>
           <li className="anb-list__item my-page">
             <Link to={'/'}>
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon icon={faSquarePlus} />
             </Link>
           </li>
         </ul>
@@ -30,4 +30,4 @@ const Menu = () => {
   )
 }
 
-export default Menu
+export default Navigation

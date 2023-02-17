@@ -1,0 +1,20 @@
+.list{
+  position: relative;
+  margin-top: 15px;
+  cursor: pointer;
+  &:first-child{
+    margin-top: 0;
+  }
+  &__wrap{
+    margin-top: 20px;
+  }
+  &__icon{
+    display: inline-block;
+    margin-right: 15px;
+    text-align: center;
+  }
+  &__title{
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

@@ -3,6 +3,8 @@ import {BrowserRouter} from 'react-router-dom'
 import {RecoilRoot} from 'recoil'
 import Header from './components/layouts/Header'
 import ContentWrapper from './components/layouts/ContentWrapper'
+import Navigation from './components/menu'
+import './assets/scss/common.scss'
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
         <Header />
         <ContentWrapper>
           <Router />
+          <Navigation />
         </ContentWrapper>
       </BrowserRouter>
     </RecoilRoot>

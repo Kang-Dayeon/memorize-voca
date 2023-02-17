@@ -1,0 +1,16 @@
+.btn{
+  padding: 10px;
+  background-color: $color-main;
+  border-radius: 10px;
+  font-size: 12px;
+  color: $color-white;
+  &__small {
+    width: 100px;
+  }
+  &__medium{
+    width: 150px;
+  }
+  &__big{
+    width: auto;
+  }
+}

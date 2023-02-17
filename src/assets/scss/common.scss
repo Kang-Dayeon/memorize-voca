@@ -1,6 +1,23 @@
 // base
 @import "./base/reset";
 
-//common
-@import "./common/layout";
-@import "common/component";
+//helpers
+@import "./helpers/variable";
+@import "./helpers/mixin";
+
+//layouts
+@import "./layouts/header";
+@import "./layouts/wrapper";
+@import "./layouts/gnb";
+
+//componenets
+@import "./components/button/button";
+@import "./components/input/input";
+@import "./components/slide/slide";
+@import "./components/list/list";
+
+// pages
+@import "./pages/common/common";
+@import "./pages/words/wordCategory.scss";
+@import "./pages/words/steps";
+@import "./pages/words/memorize";

@@ -1,4 +1,3 @@
-import './login.scss'
 import React from 'react'
 import {useUserStore} from './store/useUser'
 import useInput from '../../hooks/useInput'

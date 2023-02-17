@@ -6,8 +6,6 @@ import {useWords} from '../../store/useWords'
 import useUpdateData from '../../store/useUpdateData'
 // ** component
 import SlickSlider from '../../../../components/slide/Slider'
-// ** style
-import './../wordCategory.scss'
 
 const Memorize = () => {
   // ** react
