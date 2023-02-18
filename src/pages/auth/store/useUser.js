@@ -12,7 +12,8 @@ const loginUserState = atom({
 
 const usersState = atom({
   key: 'usersState',
-  default: users
+  default: users,
+  effects_UNSTABLE: [persistAtom]
 })
 
 const isLoginState = atom({

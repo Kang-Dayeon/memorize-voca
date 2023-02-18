@@ -1,9 +1,11 @@
 // ** react hook
 import React, {useEffect} from 'react'
 import {useParams,useNavigate} from 'react-router-dom'
+
 // ** store
 import {useWords} from '../../store/useWords'
 import useUpdateData from '../../store/useUpdateData'
+
 // ** component
 import SlickSlider from '../../../../components/slide/Slider'
 

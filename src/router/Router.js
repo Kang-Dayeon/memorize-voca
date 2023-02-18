@@ -1,13 +1,15 @@
 // ** react hook
 import React,{useEffect} from 'react'
 import {Routes, Route, Navigate, useNavigate} from 'react-router-dom'
+
 // ** store
 import {useUserStore} from '../pages/auth/store/useUser'
+
 // ** pages
 import Login from '../pages/auth/login'
 import WordCategory from '../pages/words/wordCategory'
 import Steps from '../pages/words/wordCategory/steps/Steps'
-import Memorize from '../pages/words/wordCategory/memorize'
+import Memorize from '../pages/words/wordCategory/memorize/memorize'
 
 const Router = () => {
   // ** react
