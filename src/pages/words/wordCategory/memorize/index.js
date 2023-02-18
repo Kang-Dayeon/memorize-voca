@@ -20,6 +20,10 @@ const Memorize = () => {
   // ** hooks
   useUpdateData()
 
+  const navigateTest = (key) => {
+    navigate('/testWords/' + key)
+  }
+
   useEffect(() => {
     if((params.key) && selectedCategory.steps.find((item) => item.id === parseInt(params.key))){
       const findStep = selectedCategory.steps.find((item) => item.id === parseInt(params.key))
@@ -40,6 +44,7 @@ const Memorize = () => {
     <div className="memorize">
       <h4 className="sub-title">{selectedStep.name}</h4>
       <SlickSlider words={selectedStep.words}/>
+      <button className='btn btn__big' onClick={() => navigateTest(selectedStep.name)}>TEST</button>
     </div>
   )
 }

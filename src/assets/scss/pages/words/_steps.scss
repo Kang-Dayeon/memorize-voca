@@ -1,13 +1,5 @@
 .steps{
   .list{
-    padding: 25px 15px;
-    border-radius: 20px;
-    background-color: $color-main;
-    -webkit-box-shadow:inset 2px 2px 5px 1px rgba(47,23,112,0.3);
-    box-shadow:inset 2px 2px 5px 1px rgba(47,23,112,0.3);
-    &__title{
-      color: $color-white;
-    }
     &.active{
       span{
         display: block;

@@ -13,3 +13,12 @@
     transform: translateY($translateY);
   }
 }
+
+@mixin flexCenter($direction: row){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @if $direction != row {
+    flex-direction: $direction;
+  }
+}

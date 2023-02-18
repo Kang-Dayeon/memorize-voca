@@ -1,0 +1,14 @@
+.test-words{
+  .sub-title{
+    margin-bottom: 30px;
+  }
+  .btn{
+    margin-top: 100px;
+  }
+  .list{
+    &__title{
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}

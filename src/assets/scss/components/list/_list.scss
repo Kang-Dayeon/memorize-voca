@@ -17,4 +17,14 @@
     font-size: 18px;
     font-weight: bold;
   }
+  &__round{
+    padding: 20px 15px;
+    border-radius: 20px;
+    background-color: $color-main;
+    -webkit-box-shadow:inset 2px 2px 5px 1px rgba(47,23,112,0.3);
+    box-shadow:inset 2px 2px 5px 1px rgba(47,23,112,0.3);
+    .list__title{
+      color: $color-white;
+    }
+  }
 }

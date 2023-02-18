@@ -46,7 +46,7 @@ const Steps = () => {
           {selectedCategory ?
             selectedCategory.steps.map((item) => {
               return (
-                <li className={`list 
+                <li className={`list list__round
                 ${(item.learn) ? 'active' : ''}`
                 } onClick={() => handleNavigate(item.id)}>
                   <p className="list__title">{item.name}</p>

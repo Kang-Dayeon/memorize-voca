@@ -1,6 +1,9 @@
 .memorize{
+  @include flexCenter($direction: column);
   .sub-title{
     margin-bottom: 50px;
-    text-align: center;
+  }
+  .btn{
+    margin-top: 100px;
   }
 }

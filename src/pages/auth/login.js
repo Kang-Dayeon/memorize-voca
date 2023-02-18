@@ -30,7 +30,7 @@ const Login = () => {
         <form className="login__form">
           <input className="input" name="loginId" value={value.loginId} onChange={setValue} type="text" placeholder="write your ID" />
           <input className="input" name="password" value={value.password} onChange={setValue} type="password" placeholder="write your password" />
-          <button className="login__btn btn btn__big"
+          <button className="login__btn btn"
             onClick={() => (value.loginId === '') ? alert('write your ID') :
             (value.password === '') ? alert('write your password') :
               handleLogin(value.loginId, value.password)
