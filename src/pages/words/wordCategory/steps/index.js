@@ -1,36 +1,33 @@
 // ** react hook
 import React, {useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
+
 // ** store
 import {useWords} from '../../store/useWords'
-import useUpdateData from '../../store/useUpdateData'
-import {useUserStore} from '../../../auth/store/useUser'
+
+// ** database
+import { step } from '../../../../database/words'
+
 // ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCheck} from '@fortawesome/free-solid-svg-icons'
 
-
 const Steps = () => {
   // ** recoil
-  const {selectedCategory, setSelectedCategory} = useWords()
-  const {loginUser} = useUserStore()
+  const {words, selectedCategory, setSelectedCategory} = useWords()
 
   // ** react
   const params = useParams()
   const navigate = useNavigate()
 
-  // ** hooks
-  useUpdateData()
-
   const handleNavigate = (key) => {
     navigate('/memorize/' + key)
   }
 
-  // 페이지가 로드될때 파라미터 정보로 해당 카테고리 정보 불러오고 뿌려주기
   useEffect(() => {
-    if((params.key) && (loginUser.words.find((item) => item.id === parseInt(params.key)))){
-      const find = loginUser.words.find((item) => item.id === parseInt(params.key))
-      setSelectedCategory(find)
+    if((params.key) && (words.filter((item) => item.category === params.key))){
+      const filter = words.filter((item) => item.category === params.key)
+      setSelectedCategory(filter)
     } else {
       navigate('/')
     }
@@ -43,18 +40,14 @@ const Steps = () => {
       <div className="steps">
         <h4 className="sub-title">{selectedCategory.category}</h4>
         <ul className="list__wrap">
-          {selectedCategory ?
-            selectedCategory.steps.map((item) => {
-              return (
-                <li className={`list list__round
-                ${(item.learn) ? 'active' : ''}`
-                } onClick={() => handleNavigate(item.id)}>
-                  <p className="list__title">{item.name}</p>
-                  <span><FontAwesomeIcon icon={faCheck} /></span>
-                </li>
-              )
-            }) : <></>
-          }
+          <li className='list list__round' onClick={() => handleNavigate(step.level01)}>
+            <p className="list__title">{step.level01}</p>
+            <span><FontAwesomeIcon icon={faCheck} /></span>
+          </li>
+          <li className='list list__round' onClick={() => handleNavigate(step.level02)}>
+            <p className="list__title">{step.level02}</p>
+            <span><FontAwesomeIcon icon={faCheck} /></span>
+          </li>
         </ul>
       </div>
     </>

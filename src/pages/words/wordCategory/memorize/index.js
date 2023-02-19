@@ -1,9 +1,10 @@
 // ** react hook
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useParams,useNavigate} from 'react-router-dom'
 
 // ** store
 import {useWords} from '../../store/useWords'
+// import { useUserStore } from '../../../auth/store/useUser'
 import useUpdateData from '../../store/useUpdateData'
 
 // ** component
@@ -25,14 +26,14 @@ const Memorize = () => {
   }
 
   useEffect(() => {
-    if((params.key) && selectedCategory.steps.find((item) => item.id === parseInt(params.key))){
-      const findStep = selectedCategory.steps.find((item) => item.id === parseInt(params.key))
-      setSelectedStep(() => {
+    if((params.key) && selectedCategory.filter((item) => item.step === params.key)){
+      const filter = selectedCategory.filter((item) => item.step === params.key)
+      setSelectedStep([...filter].map((item) => {
         return {
-          ...findStep,
+          ...item,
           learn: true,
         }
-      })
+      }))
     } else {
       navigate('/')
     }
@@ -42,9 +43,9 @@ const Memorize = () => {
 
   return (
     <div className="memorize">
-      <h4 className="sub-title">{selectedStep.name}</h4>
-      <SlickSlider words={selectedStep.words}/>
-      <button className='btn btn__big' onClick={() => navigateTest(selectedStep.name)}>TEST</button>
+      <h4 className="sub-title">{selectedStep.step}</h4>
+      <SlickSlider words={selectedStep}/>
+      <button className='btn btn__big' onClick={() => navigateTest(selectedStep.step)}>TEST</button>
     </div>
   )
 }

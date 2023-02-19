@@ -1,56 +1,35 @@
-import {useEffect, useState} from 'react'
+import {useCallback, useEffect, useState} from 'react'
 import {useWords} from './useWords'
 import {useUserStore} from '../../auth/store/useUser'
 
 function useUpdateData(){
   // ** recoil
-  const {selectedCategory, setSelectedCategory, selectedStep} = useWords()
+  const {selectedStep} = useWords()
   const {loginUser, setLoginUser} = useUserStore()
 
-  // ** state
-  const [steps, setSteps] = useState(null)
-  const [words, setWords] = useState(null)
+  const [learn, setLearn] = useState(null)
 
   useEffect(() => {
-    if(selectedStep){
-      setSteps(selectedCategory.steps)
-    }
-  }, [selectedStep])
-
-  useEffect(() => {
-    if(steps){
-      const filter = steps.filter((item) => item.id !== selectedStep.id)
-      filter.push(selectedStep)
-      filter.sort((a,b) => a.id - b.id)
-      setSelectedCategory((selectedCategory) => {
-        return {
-          ...selectedCategory,
-          steps: [...filter]
-        }
+    if(learn){
+      const filter = learn.filter((item) => {
+        return !selectedStep.some(other => other.id === item.id)
       })
-    }
-  }, [steps])
-
-
-  useEffect(() => {
-    if(selectedCategory){
-      setWords(loginUser.words)
-    }
-  }, [selectedCategory])
-
-  useEffect(() => {
-    if(words){
-      const filter = loginUser.words.filter((item) => item.id !== selectedCategory.id)
-      filter.push(selectedCategory)
+      filter.push(...selectedStep)
       filter.sort((a,b) => a.id - b.id)
       setLoginUser((loginUser) => {
         return {
           ...loginUser,
-          words: [...filter]
+          words: filter,
         }
       })
     }
-  }, [words])
+  }, [learn])
+
+  useEffect(() => {
+    if(selectedStep && selectedStep.length > 0){
+      setLearn(loginUser.words)
+    }
+  }, [selectedStep])
 
 }
 
