@@ -1,20 +1,80 @@
-import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import React, { useState } from "react"
+import {useNavigate} from 'react-router-dom'
 
 // ** store
-import { useUserStore } from "../../auth/store/useUser"
 import { useWords } from "../store/useWords"
+import useUpdateData from '../store/useUpdateData'
+
+// ** component
+import Modal from '../../../components/modal/Modal'
+
+// ** icon
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCheck, faArrowRotateRight, faXmark, faCircleCheck} from '@fortawesome/free-solid-svg-icons'
 
 const TestWords = () => {
-  // ** recoil
-  // const {loginUser, setLoginUser} = useUserStore()
-  const {selectedCategory, selectedStep} = useWords()
-
   // ** react
-  const params = useParams()
+  const navigate = useNavigate()
+
+  // ** recoil
+  const { selectedStep, setSelectedStep} = useWords()
 
   // ** state
   const [current, setCurrent] = useState(0)
+  const [display, setDisplay] = useState(false)
+  const [right, setRight] = useState(null)
+
+  // ** hooks
+  useUpdateData()
+
+  console.log(right)
+
+  // 테스트 진행
+  const handleTest = (answer) => {
+    if(selectedStep.length - 1 > current){
+      setCurrent(current => current + 1)
+    } else if(selectedStep.length - 1 <= current) {
+      setCurrent(0)
+      setDisplay(true)
+    }
+    setSelectedStep(
+      selectedStep.map((item) => {
+        if((selectedStep[current].korean === item.korean) && (item.korean === answer)){
+          return {
+            ...item,
+            passedTest: true
+          }
+        } else if((selectedStep[current].korean === item.korean) && (item.korean !== answer)) {
+          return {
+            ...item,
+            passedTest: false
+          }
+        } else {
+          return {
+            ...item,
+          }
+        }
+      })
+    )
+    setRight(selectedStep.filter((item) => item.passedTest))
+  }
+
+  const makeupExam = () => {
+    selectedStep.map((item) => {
+      return {
+        ...item,
+        passedTest: false
+      }
+    })
+    setDisplay(false)
+    setRight(null)
+  }
+
+  const endExam = () => {
+    setDisplay(false)
+    setRight(null)
+    navigate('/')
+  }
 
   if(!selectedStep) return
 
@@ -27,7 +87,7 @@ const TestWords = () => {
           {
             selectedStep.map((list) => {
               return (
-                <li className="list list__round">
+                <li className="list list__round" onClick={() => handleTest(list.korean)}>
                   <div className="list__title">
                     {list.korean}
                   </div>
@@ -37,6 +97,38 @@ const TestWords = () => {
           }
         </ul>
       </div>
+      <Modal name={'Result'} display={display}>
+        <div className="result__num">{right !== null ? right.length : 0}/{selectedStep.length}</div>
+        <ul className="list__wrap">
+          {
+            selectedStep.map((list) => {
+              return (
+                <li className={
+                  `list ${list.passedTest ? 'right' : 'wrong'}`
+                }>
+                  <div className="list__title">
+                    <span>
+                      {
+                        list.passedTest ? <FontAwesomeIcon icon={faCircleCheck} />
+                          : <FontAwesomeIcon icon={faXmark} />
+                      }
+                    </span>
+                    {list.english} = {list.korean}
+                  </div>
+                </li>
+              )
+            })
+          }
+        </ul>
+        <div className="btn__wrap">
+          <button className="btn" onClick={() => makeupExam()}>
+            <FontAwesomeIcon icon={faArrowRotateRight} />
+          </button>
+          <button className="btn" onClick={() => endExam()}>
+            <FontAwesomeIcon icon={faCheck} />
+          </button>
+        </div>
+      </Modal>
     </div>
   )
 }

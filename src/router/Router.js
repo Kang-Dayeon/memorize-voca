@@ -43,7 +43,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/steps/:key" element={<Steps />} />
         <Route path="/memorize/:key" element={<Memorize />} />
-        <Route path="/testWords/:key" element={<TestWords />} />
+        <Route path="/testWords/" element={<TestWords />} />
       </Routes>
     </>
   )

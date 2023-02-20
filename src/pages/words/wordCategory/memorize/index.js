@@ -21,8 +21,8 @@ const Memorize = () => {
   // ** hooks
   useUpdateData()
 
-  const navigateTest = (key) => {
-    navigate('/testWords/' + key)
+  const navigateTest = () => {
+    navigate('/testWords/')
   }
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Memorize = () => {
     <div className="memorize">
       <h4 className="sub-title">{selectedStep.step}</h4>
       <SlickSlider words={selectedStep}/>
-      <button className='btn btn__big' onClick={() => navigateTest(selectedStep.step)}>TEST</button>
+      <button className='btn btn__big' onClick={() => navigateTest(selectedStep)}>TEST</button>
     </div>
   )
 }

@@ -12,6 +12,9 @@
   @if $translateY != 0 {
     transform: translateY($translateY);
   }
+  @if ($translateX != 0 and $translateY != 0 ){
+    transform: translate($translateX, $translateY);
+  }
 }
 
 @mixin flexCenter($direction: row){

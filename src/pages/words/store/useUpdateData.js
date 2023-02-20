@@ -7,11 +7,11 @@ function useUpdateData(){
   const {selectedStep} = useWords()
   const {loginUser, setLoginUser} = useUserStore()
 
-  const [learn, setLearn] = useState(null)
+  const [loginUserWords, setLoginUserWords] = useState(null)
 
   useEffect(() => {
-    if(learn){
-      const filter = learn.filter((item) => {
+    if(loginUserWords){
+      const filter = loginUserWords.filter((item) => {
         return !selectedStep.some(other => other.id === item.id)
       })
       filter.push(...selectedStep)
@@ -23,11 +23,11 @@ function useUpdateData(){
         }
       })
     }
-  }, [learn])
+  }, [loginUserWords])
 
   useEffect(() => {
     if(selectedStep && selectedStep.length > 0){
-      setLearn(loginUser.words)
+      setLoginUserWords(loginUser.words)
     }
   }, [selectedStep])
 

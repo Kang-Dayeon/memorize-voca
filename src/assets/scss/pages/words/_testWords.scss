@@ -11,4 +11,25 @@
       text-align: center;
     }
   }
+  .modal{
+    .list{
+      span{
+        display: inline-block;
+        margin-right: 10px;
+      }
+      &__title{
+        font-size: 18px;
+      }
+      &.right{
+        color: $color-main;
+      }
+      &.wrong{
+        color: $color-light-gray;
+      }
+    }
+    .btn{
+      margin-top: 50px;
+      font-size: 18px;
+    }
+  }
 }
