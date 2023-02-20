@@ -1,5 +1,5 @@
-import {atom, useRecoilState} from 'recoil'
-import {recoilPersist} from 'recoil-persist'
+import { atom, useRecoilState } from 'recoil'
+import { recoilPersist } from 'recoil-persist'
 import {words} from '../../../database/words'
 
 const {persistAtom} = recoilPersist()

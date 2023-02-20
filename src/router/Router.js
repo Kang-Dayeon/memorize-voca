@@ -1,9 +1,9 @@
 // ** react
-import React,{useEffect} from 'react'
-import {Routes, Route, Navigate, useNavigate} from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 
 // ** store
-import {useUserStore} from '../pages/auth/store/useUser'
+import { useUserStore } from '../pages/auth/store/useUser'
 
 // ** pages
 import Login from '../pages/auth/login'

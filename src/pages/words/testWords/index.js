@@ -1,6 +1,6 @@
 // ** react
 import React, { useState } from "react"
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 // ** store
 import { useWords } from "../store/useWords"
@@ -10,8 +10,8 @@ import useUpdateData from '../store/useUpdateData'
 import Modal from '../../../components/modal/Modal'
 
 // ** icon
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCheck, faArrowRotateRight, faXmark, faCircleCheck} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faArrowRotateRight, faXmark, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 
 const TestWords = () => {
   // ** react

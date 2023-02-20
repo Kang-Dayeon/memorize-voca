@@ -1,11 +1,16 @@
-import React, {useState} from 'react'
+// ** react
+import React, { useState } from 'react'
+
+// ** slick slide
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const CustomSlide = (props) => {
+  // ** props
   const itemValue = props.item
 
+  // ** state
   const [active, setActive] = useState(false)
 
   const handleToggle = () => {

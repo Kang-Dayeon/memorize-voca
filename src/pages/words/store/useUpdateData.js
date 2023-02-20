@@ -1,6 +1,6 @@
-import {useEffect, useState} from 'react'
-import {useWords} from './useWords'
-import {useUserStore} from '../../auth/store/useUser'
+import { useEffect, useState } from 'react'
+import { useWords } from './useWords'
+import { useUserStore } from '../../auth/store/useUser'
 
 function useUpdateData(){
   // ** recoil

@@ -2,7 +2,7 @@
 import React from 'react'
 
 // ** store
-import {useUserStore} from './store/useUser'
+import { useUserStore } from './store/useUser'
 
 // ** hooks
 import useInput from '../../hooks/useInput'

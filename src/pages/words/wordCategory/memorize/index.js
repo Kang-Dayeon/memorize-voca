@@ -1,9 +1,9 @@
 // ** react hook
-import React, {useEffect} from 'react'
-import {useParams,useNavigate} from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 
 // ** store
-import {useWords} from '../../store/useWords'
+import { useWords } from '../../store/useWords'
 
 // database
 import useUpdateData from '../../store/useUpdateData'

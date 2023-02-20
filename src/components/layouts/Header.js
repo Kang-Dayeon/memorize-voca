@@ -2,10 +2,11 @@
 import React, {useEffect} from 'react'
 import {useNavigate, useLocation} from 'react-router-dom'
 // ** icon
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faAngleLeft} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+
 // ** store
-import {useUserStore} from '../../pages/auth/store/useUser'
+import { useUserStore } from '../../pages/auth/store/useUser'
 
 const Header = () => {
   // ** react
