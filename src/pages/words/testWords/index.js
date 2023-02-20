@@ -1,3 +1,4 @@
+// ** react
 import React, { useState } from "react"
 import {useNavigate} from 'react-router-dom'
 
@@ -26,8 +27,6 @@ const TestWords = () => {
 
   // ** hooks
   useUpdateData()
-
-  console.log(right)
 
   // 테스트 진행
   const handleTest = (answer) => {
@@ -98,19 +97,21 @@ const TestWords = () => {
         </ul>
       </div>
       <Modal name={'Result'} display={display}>
-        <div className="result__num">{right !== null ? right.length : 0}/{selectedStep.length}</div>
+        <div className="result__count">
+          <span>{right !== null ? right.length : 0}</span>
+          &nbsp;/&nbsp;
+          {selectedStep.length}
+        </div>
         <ul className="list__wrap">
           {
             selectedStep.map((list) => {
               return (
-                <li className={
-                  `list ${list.passedTest ? 'right' : 'wrong'}`
-                }>
+                <li className={`list ${list.passedTest ? 'right' : 'wrong'}`}>
                   <div className="list__title">
                     <span>
                       {
-                        list.passedTest ? <FontAwesomeIcon icon={faCircleCheck} />
-                          : <FontAwesomeIcon icon={faXmark} />
+                        list.passedTest ? 
+                        <FontAwesomeIcon icon={faCircleCheck} /> : <FontAwesomeIcon icon={faXmark} />
                       }
                     </span>
                     {list.english} = {list.korean}

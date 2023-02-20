@@ -1,10 +1,11 @@
 // ** react hook
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {useParams,useNavigate} from 'react-router-dom'
 
 // ** store
 import {useWords} from '../../store/useWords'
-// import { useUserStore } from '../../../auth/store/useUser'
+
+// database
 import useUpdateData from '../../store/useUpdateData'
 
 // ** component
@@ -18,7 +19,7 @@ const Memorize = () => {
   // ** recoil
   const {selectedCategory, selectedStep, setSelectedStep} = useWords()
 
-  // ** hooks
+  // ** hook
   useUpdateData()
 
   const navigateTest = () => {

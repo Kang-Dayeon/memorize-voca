@@ -1,10 +1,17 @@
+// ** react
 import React from 'react'
+
+// ** store
 import {useUserStore} from './store/useUser'
+
+// ** hooks
 import useInput from '../../hooks/useInput'
 
 const Login = () => {
+  // ** store
   const {users, setLoginUser, setIsLogin} = useUserStore()
 
+  // ** hook
   const [value, setValue] = useInput({
     loginId: '',
     password: ''
@@ -32,8 +39,8 @@ const Login = () => {
           <input className="input" name="password" value={value.password} onChange={setValue} type="password" placeholder="write your password" />
           <button className="login__btn btn"
             onClick={() => (value.loginId === '') ? alert('write your ID') :
-            (value.password === '') ? alert('write your password') :
-              handleLogin(value.loginId, value.password)
+              (value.password === '') ? alert('write your password') :
+                handleLogin(value.loginId, value.password)
           }>LOGIN</button>
         </form>
       </div>

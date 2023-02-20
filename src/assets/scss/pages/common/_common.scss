@@ -3,3 +3,14 @@
   font-weight: bold;
   color: $color-main;
 }
+
+.result__count{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: $color-light-gray;
+  span{
+    font-size: 24px;
+    color: $color-main;
+  }
+}

@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useWords} from './useWords'
 import {useUserStore} from '../../auth/store/useUser'
 
@@ -7,6 +7,7 @@ function useUpdateData(){
   const {selectedStep} = useWords()
   const {loginUser, setLoginUser} = useUserStore()
 
+  // ** state
   const [loginUserWords, setLoginUserWords] = useState(null)
 
   useEffect(() => {
