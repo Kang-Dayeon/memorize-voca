@@ -1,8 +1,8 @@
 import { atom, useRecoilState } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
-import {words} from '../../../database/words'
+import { words } from '../../../database/words'
 
-const {persistAtom} = recoilPersist()
+const { persistAtom } = recoilPersist()
 
 const wordsState = atom({
   key: 'wordState',

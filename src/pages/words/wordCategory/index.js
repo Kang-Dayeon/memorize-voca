@@ -1,10 +1,8 @@
 // ** react
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
 // ** database
 import { category } from '../../../database/words'
-
 // ** icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookBookmark } from '@fortawesome/free-solid-svg-icons'

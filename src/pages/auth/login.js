@@ -1,15 +1,13 @@
 // ** react
 import React from 'react'
-
 // ** store
-import { useUserStore } from './store/useUser'
-
+import { useUser } from './store/useUser'
 // ** hooks
 import useInput from '../../hooks/useInput'
 
 const Login = () => {
   // ** store
-  const {users, setLoginUser, setIsLogin} = useUserStore()
+  const {users, setLoginUser, setIsLogin} = useUser()
 
   // ** hook
   const [value, setValue] = useInput({
@@ -24,7 +22,6 @@ const Login = () => {
       alert('비밀번호가 일치하지 않습니다')
     } else {
       const find = users.find((user) => (user.loginId === loginId) && (user.password === password))
-      console.log(find)
       setLoginUser({...find})
       setIsLogin(true)
     }

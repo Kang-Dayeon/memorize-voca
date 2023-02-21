@@ -1,8 +1,7 @@
-import {atom, useRecoilState} from 'recoil'
-import {recoilPersist} from 'recoil-persist'
-import {users} from '../../../database/users'
-
-const {persistAtom} = recoilPersist()
+import { atom, useRecoilState } from 'recoil'
+import { recoilPersist } from 'recoil-persist'
+import { users } from '../../../database/users'
+const { persistAtom } = recoilPersist()
 
 const loginUserState = atom({
   key: 'loginUserState',
@@ -22,7 +21,7 @@ const isLoginState = atom({
   effects_UNSTABLE: [persistAtom]
 })
 
-export const useUserStore = () => {
+export const useUser = () => {
   const [loginUser, setLoginUser] = useRecoilState(loginUserState)
   const [users, setUsers] = useRecoilState(usersState)
   const [isLogin, setIsLogin] = useRecoilState(isLoginState)

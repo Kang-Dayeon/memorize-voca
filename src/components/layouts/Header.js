@@ -4,9 +4,8 @@ import {useNavigate, useLocation} from 'react-router-dom'
 // ** icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
-
 // ** store
-import { useUserStore } from '../../pages/auth/store/useUser'
+import { useUser } from '../../pages/auth/store/useUser'
 
 const Header = () => {
   // ** react
@@ -14,7 +13,7 @@ const Header = () => {
   const location = useLocation()
 
   // ** recoil
-  const {users,setUsers,loginUser} = useUserStore()
+  const {users,setUsers,loginUser} = useUser()
 
   useEffect(() => {
     if(loginUser){

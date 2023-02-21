@@ -1,13 +1,10 @@
 // ** react hook
 import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-
 // ** store
 import { useWords } from '../../store/useWords'
-
-// database
-import useUpdateData from '../../store/useUpdateData'
-
+// ** hook
+import useUpdateData from '../../hook/useUpdateData'
 // ** component
 import SlickSlider from '../../../../components/slide/Slider'
 
@@ -16,8 +13,8 @@ const Memorize = () => {
   const params = useParams()
   const navigate = useNavigate()
 
-  // ** recoil
-  const {selectedCategory, selectedStep, setSelectedStep} = useWords()
+  // ** store
+  const { selectedCategory, selectedStep, setSelectedStep } = useWords()
 
   // ** hook
   useUpdateData()

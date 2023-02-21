@@ -3,21 +3,21 @@ import React, { useEffect } from 'react'
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 
 // ** store
-import { useUserStore } from '../pages/auth/store/useUser'
+import { useUser } from '../pages/auth/store/useUser'
 
 // ** pages
 import Login from '../pages/auth/login'
 import WordCategory from '../pages/words/wordCategory'
 import Steps from '../pages/words/wordCategory/steps'
 import Memorize from '../pages/words/wordCategory/memorize'
-import TestWords from '../pages/words/testWords'
+import TestWords from '../pages/words/wordCategory/testWords'
 
 const Router = () => {
   // ** react
   const navigate = useNavigate()
 
   // ** recoil
-  const {isLogin} = useUserStore()
+  const {isLogin} = useUser()
 
   const homeRoute = () => {
     if(isLogin) {

@@ -1,20 +1,17 @@
 // ** react
 import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-
 // ** store
 import { useWords } from '../../store/useWords'
-
 // ** database
 import { step } from '../../../../database/words'
-
 // ** icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const Steps = () => {
-  // ** recoil
-  const {words, selectedCategory, setSelectedCategory} = useWords()
+  // ** store
+  const { words, selectedCategory, setSelectedCategory } = useWords()
 
   // ** react
   const params = useParams()

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useWords } from './useWords'
-import { useUserStore } from '../../auth/store/useUser'
+import {useWords} from '../store/useWords'
+import { useUser } from '../../auth/store/useUser'
 
 function useUpdateData(){
   // ** recoil
   const {selectedStep} = useWords()
-  const {loginUser, setLoginUser} = useUserStore()
+  const {loginUser, setLoginUser} = useUser()
 
   // ** state
   const [loginUserWords, setLoginUserWords] = useState(null)
