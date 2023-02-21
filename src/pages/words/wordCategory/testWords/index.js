@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faArrowRotateRight, faXmark, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 
 const TestWords = () => {
+  // TODO : 영어도 랜덤으로 보여주기
+
   // ** store
   const { selectedStep } = useWords()
 
