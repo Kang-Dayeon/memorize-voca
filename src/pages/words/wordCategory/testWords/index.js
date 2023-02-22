@@ -1,24 +1,26 @@
 // ** react
-import React from "react"
+import React from 'react'
 // ** store
 import {useWords} from '../../store/useWords'
 // ** hook
-import useUpdateData from '../../hook/useUpdateData'
 import {useTestWords} from '../../hook/useTestWords'
 // ** component
 import Modal from '../../../../components/modal/Modal'
 // ** icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faArrowRotateRight, faXmark, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {
+  faCheck,
+  faArrowRotateRight,
+  faXmark,
+  faCircleCheck,
+} from '@fortawesome/free-solid-svg-icons'
 
 const TestWords = () => {
   // TODO : 영어도 랜덤으로 보여주기
 
   // ** store
-  const { selectedStep } = useWords()
+  const {selectedStep} = useWords()
 
-  // ** hooks
-  useUpdateData()
   const {
     currentIndex,
     display,
@@ -26,10 +28,10 @@ const TestWords = () => {
     randomAnswer,
     handleTest,
     makeupExam,
-    endExam
+    endExam,
   } = useTestWords()
 
-  if(!selectedStep) return
+  if (!selectedStep) return
 
   return (
     <div className="test-words">
@@ -43,22 +45,23 @@ const TestWords = () => {
         <ul className="list__wrap">
           {
             randomAnswer !== null ?
-            randomAnswer.map((list) => {
-              return (
-                <li className="list list__round" onClick={() => handleTest(list.korean)}>
-                  <div className="list__title">
-                    {list.korean}
-                  </div>
-                </li>
-              )
-            }) : <></>
+              randomAnswer.map((list) => {
+                return (
+                  <li className="list list__round"
+                      onClick={() => handleTest(list.korean)}>
+                    <div className="list__title">
+                      {list.korean}
+                    </div>
+                  </li>
+                )
+              }) : <></>
           }
         </ul>
       </div>
       <Modal name={'Result'} display={display}>
         <div className="result__count">
           <span>
-            { rightWords !== null ? rightWords.length : 0 }
+            {rightWords !== null ? rightWords.length : 0}
           </span>
           &nbsp;/&nbsp;
           {selectedStep.length}
@@ -71,8 +74,10 @@ const TestWords = () => {
                   <div className="list__title">
                     <span>
                       {
-                        list.passedTest ? <FontAwesomeIcon icon={faCircleCheck} />
-                          : <FontAwesomeIcon icon={faXmark} />
+                        list.passedTest ?
+                          <FontAwesomeIcon icon={faCircleCheck}/>
+                          :
+                          <FontAwesomeIcon icon={faXmark}/>
                       }
                     </span>
                     {list.english} = {list.korean}
@@ -84,10 +89,10 @@ const TestWords = () => {
         </ul>
         <div className="btn__wrap">
           <button className="btn" onClick={() => makeupExam()}>
-            <FontAwesomeIcon icon={faArrowRotateRight} />
+            <FontAwesomeIcon icon={faArrowRotateRight}/>
           </button>
           <button className="btn" onClick={() => endExam()}>
-            <FontAwesomeIcon icon={faCheck} />
+            <FontAwesomeIcon icon={faCheck}/>
           </button>
         </div>
       </Modal>

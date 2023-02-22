@@ -1,10 +1,10 @@
 // ** react
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 // ** icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faHouse, faSquarePlus } from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faUser, faHouse, faSquarePlus} from '@fortawesome/free-solid-svg-icons'
 
 const Navigation = () => {
   return (
@@ -13,17 +13,17 @@ const Navigation = () => {
         <ul className="anb-list">
           <li className="anb-list__item my-page">
             <Link to={'/'}>
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon icon={faUser}/>
             </Link>
           </li>
           <li className="anb-list__item my-page">
             <Link to={'/'}>
-              <FontAwesomeIcon icon={faHouse} />
+              <FontAwesomeIcon icon={faHouse}/>
             </Link>
           </li>
           <li className="anb-list__item my-page">
             <Link to={'/'}>
-              <FontAwesomeIcon icon={faSquarePlus} />
+              <FontAwesomeIcon icon={faSquarePlus}/>
             </Link>
           </li>
         </ul>

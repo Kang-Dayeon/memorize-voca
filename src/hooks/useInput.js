@@ -6,7 +6,7 @@ export default (initialValue) => {
   const [data, setData] = useState(initialValue)
 
   const handle = e => {
-    const {value, name} = e.target;
+    const {value, name} = e.target
     setData({
       ...data,
       [name]: value

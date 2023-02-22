@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 
 export const useSelectList = () => {
   // ** state
@@ -7,14 +7,14 @@ export const useSelectList = () => {
 
   const handleSelectList = () => {
     const list = []
-    for(let key in data){
+    for (let key in data) {
       list.push(data[key])
     }
     setSelectedList(list)
   }
 
   useEffect(() => {
-    if(data){
+    if (data) {
       handleSelectList()
     }
   }, [data])

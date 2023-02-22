@@ -1,10 +1,8 @@
 // ** react
-import React, { useEffect } from 'react'
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
-
+import React, {useEffect} from 'react'
+import {Routes, Route, Navigate, useNavigate} from 'react-router-dom'
 // ** store
-import { useUser } from '../pages/auth/store/useUser'
-
+import {useUser} from '../pages/auth/store/useUser'
 // ** pages
 import Login from '../pages/auth/login'
 import WordCategory from '../pages/words/wordCategory'
@@ -20,15 +18,15 @@ const Router = () => {
   const {isLogin} = useUser()
 
   const homeRoute = () => {
-    if(isLogin) {
+    if (isLogin) {
       return '/wordCategory'
-    } else  {
+    } else {
       return '/login'
     }
   }
 
   useEffect(() => {
-    if(isLogin){
+    if (isLogin) {
       navigate('/wordCategory')
     } else {
       navigate('/login')
@@ -38,12 +36,12 @@ const Router = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Navigate replace to={homeRoute()}/>} />
-        <Route path="/wordCategory" element={<WordCategory />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/steps/:key" element={<Steps />} />
-        <Route path="/memorize/:key" element={<Memorize />} />
-        <Route path="/testWords/" element={<TestWords />} />
+        <Route path="/" element={<Navigate replace to={homeRoute()}/>}/>
+        <Route path="/wordCategory" element={<WordCategory/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/steps/:key" element={<Steps/>}/>
+        <Route path="/memorize/:key" element={<Memorize/>}/>
+        <Route path="/testWords/" element={<TestWords/>}/>
       </Routes>
     </>
   )

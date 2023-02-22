@@ -1,5 +1,5 @@
 // ** react
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 // ** store
 import {useWords} from '../store/useWords'
@@ -9,7 +9,7 @@ export const useTestWords = () => {
   const navigate = useNavigate()
 
   // ** recoil
-  const { selectedStep, setSelectedStep } = useWords()
+  const {selectedStep, setSelectedStep} = useWords()
 
   // ** state
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -19,31 +19,33 @@ export const useTestWords = () => {
 
   // 테스트 진행
   const handleTest = (answer) => {
-    if(selectedStep.length - 1 > currentIndex){
+    if (selectedStep.length - 1 > currentIndex) {
       setCurrentIndex(currentIndex => currentIndex + 1)
       handleRandom()
-    } else if(selectedStep.length - 1 <= currentIndex) {
+    } else if (selectedStep.length - 1 <= currentIndex) {
       setCurrentIndex(0)
       setDisplay(true)
     }
     setSelectedStep(
       selectedStep.map((item) => {
-        if((selectedStep[currentIndex].korean === item.korean) && (item.korean === answer)){
+        if ((selectedStep[currentIndex].korean === item.korean) &&
+          (item.korean === answer)) {
           return {
             ...item,
-            passedTest: true
+            passedTest: true,
           }
-        } else if((selectedStep[currentIndex].korean === item.korean) && (item.korean !== answer)) {
+        } else if ((selectedStep[currentIndex].korean === item.korean) &&
+          (item.korean !== answer)) {
           return {
             ...item,
-            passedTest: false
+            passedTest: false,
           }
         } else {
           return {
             ...item,
           }
         }
-      })
+      }),
     )
   }
 
@@ -52,7 +54,7 @@ export const useTestWords = () => {
     selectedStep.map((item) => {
       return {
         ...item,
-        passedTest: false
+        passedTest: false,
       }
     })
     setDisplay(false)
@@ -74,7 +76,7 @@ export const useTestWords = () => {
   }
 
   useEffect(() => {
-    if(selectedStep){
+    if (selectedStep) {
       handleRandom()
       setRightWords(selectedStep.filter((item) => item.passedTest))
     }
@@ -87,6 +89,6 @@ export const useTestWords = () => {
     randomAnswer,
     handleTest,
     makeupExam,
-    endExam
+    endExam,
   }
 }

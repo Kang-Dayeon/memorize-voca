@@ -1,10 +1,10 @@
 // ** react
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
 // ** slick slide
-import Slider from "react-slick";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const CustomSlide = (props) => {
   // ** props
@@ -20,7 +20,8 @@ const CustomSlide = (props) => {
   return (
     <div className="slide-contents">
       <h4 className="slide-contents__title">{itemValue.english}</h4>
-      <div className={`slide-contents__text ${active ? 'active' : ''}`} onClick={() => handleToggle()}>
+      <div className={`slide-contents__text ${active ? 'active' : ''}`}
+           onClick={() => handleToggle()}>
         <p className="slide-contents__meaning">{itemValue.korean}</p>
         <p className="slide-contents__explanation">{itemValue.explanation}</p>
       </div>
@@ -36,7 +37,7 @@ const SlickSlider = (props) => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   }
 
   return (
@@ -44,9 +45,9 @@ const SlickSlider = (props) => {
       <Slider {...settings}>
         {
           words ?
-          words.map((item) => {
-            return <CustomSlide item={item} />
-          }) : <></>
+            words.map((item) => {
+              return <CustomSlide item={item}/>
+            }) : <></>
         }
       </Slider>
     </div>

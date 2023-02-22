@@ -1,7 +1,7 @@
 // ** react
 import React from 'react'
 // ** store
-import { useUser } from './store/useUser'
+import {useUser} from './store/useUser'
 // ** hooks
 import useInput from '../../hooks/useInput'
 
@@ -12,16 +12,17 @@ const Login = () => {
   // ** hook
   const [value, setValue] = useInput({
     loginId: '',
-    password: ''
+    password: '',
   })
 
   const handleLogin = (loginId, password) => {
-    if(!users.some((user) => user.loginId === loginId)) {
+    if (!users.some((user) => user.loginId === loginId)) {
       alert('아이디가 일치하지 않습니다.')
-    } else if(!users.some((user) => user.password === password)) {
+    } else if (!users.some((user) => user.password === password)) {
       alert('비밀번호가 일치하지 않습니다')
     } else {
-      const find = users.find((user) => (user.loginId === loginId) && (user.password === password))
+      const find = users.find(
+        (user) => (user.loginId === loginId) && (user.password === password))
       setLoginUser({...find})
       setIsLogin(true)
     }
@@ -32,13 +33,18 @@ const Login = () => {
       <div className="login__wrap">
         <h3 className="login__title">Login</h3>
         <form className="login__form">
-          <input className="input" name="loginId" value={value.loginId} onChange={setValue} type="text" placeholder="write your ID" />
-          <input className="input" name="password" value={value.password} onChange={setValue} type="password" placeholder="write your password" />
+          <input className="input" name="loginId" value={value.loginId}
+                 onChange={setValue} type="text" placeholder="write your ID"/>
+          <input className="input" name="password" value={value.password}
+                 onChange={setValue} type="password"
+                 placeholder="write your password"/>
           <button className="login__btn btn"
-            onClick={() => (value.loginId === '') ? alert('write your ID') :
-              (value.password === '') ? alert('write your password') :
-                handleLogin(value.loginId, value.password)
-          }>LOGIN</button>
+                  onClick={() => (value.loginId === '') ?
+                    alert('write your ID') :
+                    (value.password === '') ? alert('write your password') :
+                      handleLogin(value.loginId, value.password)
+                  }>LOGIN
+          </button>
         </form>
       </div>
     </div>
