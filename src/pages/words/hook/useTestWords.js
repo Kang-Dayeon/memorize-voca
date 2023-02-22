@@ -3,19 +3,42 @@ import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 // ** store
 import {useWords} from '../store/useWords'
+import {useUser} from '../../auth/store/useUser'
 
 export const useTestWords = () => {
+  // TODO : 로그인 유저에 맞고 틀린 단어 추가하기
+
   // ** react
   const navigate = useNavigate()
 
-  // ** recoil
+  // ** store
   const {selectedStep, setSelectedStep} = useWords()
+  const {setLoginUser} = useUser()
 
   // ** state
   const [currentIndex, setCurrentIndex] = useState(0)
   const [display, setDisplay] = useState(false)
   const [rightWords, setRightWords] = useState(null)
+  const [wrongWords, setWrongWords] = useState(null)
   const [randomAnswer, setRandomAnswer] = useState(null)
+
+  const addHistoryTest = () => {
+    setLoginUser((loginUser) => {
+      return {
+        ...loginUser,
+        historyTest: {
+          right : [
+            ...loginUser.historyTest.right,
+            ...rightWords
+          ],
+          wrong : [
+            ...loginUser.historyTest.wrong,
+            ...wrongWords
+          ],
+        }
+      }
+    })
+  }
 
   // 테스트 진행
   const handleTest = (answer) => {
@@ -63,6 +86,7 @@ export const useTestWords = () => {
 
   // 시험끝나면
   const endExam = () => {
+    addHistoryTest()
     setDisplay(false)
     setRightWords(null)
     navigate('/')
@@ -75,10 +99,12 @@ export const useTestWords = () => {
     setRandomAnswer(testWords)
   }
 
+
   useEffect(() => {
     if (selectedStep) {
       handleRandom()
       setRightWords(selectedStep.filter((item) => item.passedTest))
+      setWrongWords(selectedStep.filter((item) => !item.passedTest))
     }
   }, [selectedStep])
 

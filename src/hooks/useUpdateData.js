@@ -11,12 +11,11 @@ function useUpdateData() {
     setLoginUser((loginUser) => {
       return {
         ...loginUser,
-        history: [
-          ...loginUser.history,
+        historyLearn: [
+          ...loginUser.historyLearn,
           {
             category: selectedStep[0].category,
             step: selectedStep[0].step,
-            words: selectedStep,
           },
         ],
       }
