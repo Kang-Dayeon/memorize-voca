@@ -6,14 +6,14 @@ import {useWords} from '../store/useWords'
 import {useUser} from '../../auth/store/useUser'
 
 export const useTestWords = () => {
-  // TODO : 로그인 유저에 맞고 틀린 단어 추가하기
+  // TODO : 로그인 유저에 맞고 틀린 단어 추가시 기존 기록에서 틀린단어나 맞는 단어 중복되지 않게 필터링
 
   // ** react
   const navigate = useNavigate()
 
   // ** store
   const {selectedStep, setSelectedStep} = useWords()
-  const {setLoginUser} = useUser()
+  const {loginUser, setLoginUser} = useUser()
 
   // ** state
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -22,19 +22,20 @@ export const useTestWords = () => {
   const [wrongWords, setWrongWords] = useState(null)
   const [randomAnswer, setRandomAnswer] = useState(null)
 
+  // 테스트 내용 추가
   const addHistoryTest = () => {
     setLoginUser((loginUser) => {
       return {
         ...loginUser,
         historyTest: {
-          right : [
-            ...loginUser.historyTest.right,
-            ...rightWords
+          pass: [
+            ...loginUser.historyTest.pass.filter((item) => wrongWords.some((other) => item.id !== other.id)),
+            ...rightWords,
           ],
-          wrong : [
-            ...loginUser.historyTest.wrong,
-            ...wrongWords
-          ],
+          failed: [
+            ...loginUser.historyTest.failed.filter((item) => rightWords.some((other) => item.id !== other.id)),
+            ...wrongWords,
+          ]
         }
       }
     })
@@ -98,7 +99,6 @@ export const useTestWords = () => {
     testWords.sort(() => Math.random() - 0.5)
     setRandomAnswer(testWords)
   }
-
 
   useEffect(() => {
     if (selectedStep) {

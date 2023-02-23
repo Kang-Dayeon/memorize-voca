@@ -15,14 +15,13 @@ const Memorize = () => {
   const {selectedCategory, selectedStep, setSelectedStep} = useWords()
 
   const navigateTest = () => {
-    navigate('/testWords/')
+    navigate('/testWords')
   }
 
   useEffect(() => {
     if ((params.key) &&
       selectedCategory.filter((item) => item.step === params.key)) {
-      const filterStep = selectedCategory.filter(
-        (item) => item.step === params.key)
+      const filterStep = selectedCategory.filter((item) => item.step === params.key)
       setSelectedStep(filterStep)
     } else {
       navigate('/')

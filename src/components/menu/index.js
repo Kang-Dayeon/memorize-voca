@@ -12,7 +12,7 @@ const Navigation = () => {
       <div className="anb__wrap">
         <ul className="anb-list">
           <li className="anb-list__item my-page">
-            <Link to={'/'}>
+            <Link to={'/mypage'}>
               <FontAwesomeIcon icon={faUser}/>
             </Link>
           </li>

@@ -1,0 +1,35 @@
+.my-page{
+  .card{
+    margin-top: 20px;
+    &__main{
+      padding: 30px 20px;
+      border-radius: 30px;
+      .list__title{
+        font-size: 16px;
+        color: $color-white;
+      }
+    }
+    &__gray{
+      .list{
+        &__title{
+          font-size: 14px;
+        }
+        &__icon{
+          margin-right: 7px;
+        }
+      }
+    }
+    .list__wrap{
+      margin-top: 0;
+    }
+  }
+  .btn__wrap{
+    margin-top: 20px;
+  }
+  .sub-title{
+    margin-top: 20px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+}

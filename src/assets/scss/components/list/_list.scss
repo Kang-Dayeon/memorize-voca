@@ -17,6 +17,11 @@
     font-size: 18px;
     font-weight: bold;
   }
+  &__desc{
+    margin-top: 5px;
+    font-size: 14px;
+    color: $color-light-gray;
+  }
   &__round{
     padding: 20px 15px;
     border-radius: 20px;
