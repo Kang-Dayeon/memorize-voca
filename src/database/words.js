@@ -1,6 +1,7 @@
 export const category = {
-  middleSchool : 'Middle School',
-  highSchool : 'High School',
+  middleSchool: 'Middle School',
+  highSchool: 'High School',
+  myWords: 'My Words'
 }
 
 export const step = {

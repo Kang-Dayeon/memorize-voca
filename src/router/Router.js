@@ -40,8 +40,8 @@ const Router = () => {
     <>
       <Routes>
         <Route path="/" element={<Navigate replace to={homeRoute()}/>}/>
-        <Route path="/wordCategory" element={<WordCategory/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/wordCategory" element={<WordCategory/>}/>
         <Route path="/steps/:key" element={<Steps/>}/>
         <Route path="/memorize/:key" element={<Memorize/>}/>
         <Route path="/testWords" element={<TestWords/>}/>

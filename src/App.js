@@ -6,7 +6,6 @@ import {RecoilRoot} from 'recoil'
 // ** component
 import Header from './components/layouts/Header'
 import ContentWrapper from './components/layouts/ContentWrapper'
-import Navigation from './components/menu'
 // ** style
 import './assets/scss/common.scss'
 
@@ -17,7 +16,6 @@ function App() {
         <Header/>
         <ContentWrapper>
           <Router/>
-          <Navigation/>
         </ContentWrapper>
       </BrowserRouter>
     </RecoilRoot>

@@ -21,7 +21,7 @@ const Memorize = () => {
   }
 
   const addHistoryLearn = () => {
-    if(selectedStep){
+    if(selectedCategory.length > 0 && selectedStep.length > 0){
       setLoginUser((loginUser) => {
         return {
           ...loginUser,
@@ -60,9 +60,13 @@ const Memorize = () => {
     <div className="memorize">
       <h4 className="sub-title">{selectedStep.step}</h4>
       <SlickSlider words={selectedStep}/>
-      <button className="btn btn__big"
-              onClick={() => navigateTest(selectedStep)}>TEST
-      </button>
+      {
+        (selectedStep.length > 0) ?
+          <button className="btn btn__big"
+                  onClick={() => navigateTest(selectedStep)}>TEST
+          </button>
+          : <></>
+      }
     </div>
   )
 }

@@ -22,7 +22,6 @@ const FailedWords = () => {
 
   useEffect(() => {
     if (params) {
-      console.log(loginUser.historyTest.failed)
       setSelectedStep(loginUser.historyTest.failed)
     } else {
       navigate('/')
@@ -35,9 +34,13 @@ const FailedWords = () => {
     <div className="memorize">
       <h4 className="sub-title">{selectedStep.step}</h4>
       <SlickSlider words={selectedStep}/>
-      <button className="btn btn__big"
-              onClick={() => navigateTest(selectedStep)}>TEST
-      </button>
+      {
+        (selectedStep.length > 0) ?
+          <button className="btn btn__big"
+                  onClick={() => navigateTest(selectedStep)}>TEST
+          </button>
+          : <></>
+      }
     </div>
   )
 }

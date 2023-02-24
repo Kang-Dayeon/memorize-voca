@@ -1,6 +1,8 @@
 // ** react
 import React, {useState} from 'react'
-
+// ** icon
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faFolderOpen} from '@fortawesome/free-solid-svg-icons'
 // ** slick slide
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -44,10 +46,14 @@ const SlickSlider = (props) => {
     <div className="slide-wrap">
       <Slider {...settings}>
         {
-          words ?
+          (words.length > 0) ?
             words.map((item) => {
               return <CustomSlide item={item}/>
-            }) : <></>
+            }) :
+            <div className="slide-contents__none">
+              <FontAwesomeIcon icon={faFolderOpen} />
+              <p>Empty...</p>
+            </div>
         }
       </Slider>
     </div>
