@@ -6,7 +6,7 @@ export const users = [
     password: '123',
     historyLearn: [],
     historyTest: {
-      pass: [],
+      passed: [],
       failed: [],
     },
   },
@@ -17,7 +17,7 @@ export const users = [
     password: '123',
     historyLearn: [],
     historyTest: {
-      pass: [],
+      passed: [],
       failed: [],
     },
   },

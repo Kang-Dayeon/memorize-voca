@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React from 'react'
+import {useNavigate} from 'react-router-dom'
 // ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faFaceSmile, faUserNinja, faCheck, faXmark, faClockRotateLeft} from '@fortawesome/free-solid-svg-icons'
@@ -6,10 +7,23 @@ import {faFaceSmile, faUserNinja, faCheck, faXmark, faClockRotateLeft} from '@fo
 import {useUser} from '../auth/store/useUser'
 
 const MyPage = () => {
-  const { loginUser, setLoginUser } = useUser()
+  const { loginUser, setIsLogin, resetUser } = useUser()
 
-  const [rightWords, setRightWords] = useState(null)
-  const [wrongWords, setWrongWords] = useState(null)
+  const navigate = useNavigate()
+
+  const navigatePass = () => {
+    navigate('/pass')
+  }
+
+  const navigateFail = () => {
+    navigate('/fail')
+  }
+
+  const logout = () => {
+    setIsLogin(false)
+    resetUser()
+    navigate('/')
+  }
 
   return (
     <div className="my-page">
@@ -24,32 +38,42 @@ const MyPage = () => {
               Name : {loginUser.name}
             </div>
           </li>
-          <li className="list">
-            <div className="list__title">
+          {
+            loginUser.historyLearn.length > 0 ?
+              <li className="list">
+                <div className="list__title">
               <span className="list__icon">
                 <FontAwesomeIcon icon={faUserNinja} />
               </span>
-              Last Study :&nbsp;
-              {loginUser.historyLearn[loginUser.historyLearn.length - 1].category}
-              &nbsp;/&nbsp;
-              {loginUser.historyLearn[loginUser.historyLearn.length - 1].step}
-            </div>
-          </li>
+                  Last Study :&nbsp;
+                  {loginUser.historyLearn[loginUser.historyLearn.length - 1].category}
+                  &nbsp;/&nbsp;
+                  {loginUser.historyLearn[loginUser.historyLearn.length - 1].step}
+                </div>
+              </li> :
+              <li className="list">
+                <div className="list__title">
+                  <span className="list__icon">
+                    <FontAwesomeIcon icon={faUserNinja} />
+                  </span>
+                </div>
+              </li>
+          }
         </ul>
       </div>
       <h4 className="sub-title">Test Result</h4>
       <div className="btn__wrap">
-        <button className="btn">
+        <button className="btn btn__big" onClick={() => navigatePass()}>
           <span className="btn__icon">
             <FontAwesomeIcon icon={faCheck} />
           </span>
-          Right Word
+          Passed Word
         </button>
-        <button className="btn">
+        <button className="btn btn__big" onClick={() => navigateFail()}>
           <span className="btn__icon">
             <FontAwesomeIcon icon={faXmark} />
           </span>
-          Wrong Word
+          Failed Word
         </button>
       </div>
       <h4 className="sub-title">Timeline</h4>
@@ -71,6 +95,9 @@ const MyPage = () => {
                 }) : <></>
             }
         </ul>
+      </div>
+      <div className="logout">
+        <button className="btn btn__big" onClick={() => logout()}>Logout</button>
       </div>
     </div>
   )

@@ -10,6 +10,8 @@ import Steps from '../pages/words/wordCategory/steps'
 import Memorize from '../pages/words/wordCategory/memorize'
 import TestWords from '../pages/words/wordCategory/testWords'
 import MyPage from '../pages/mypage'
+import PassedWords from '../pages/mypage/testResult/passedWords'
+import FailedWords from '../pages/mypage/testResult/failedWords'
 
 const Router = () => {
   // ** react
@@ -44,6 +46,8 @@ const Router = () => {
         <Route path="/memorize/:key" element={<Memorize/>}/>
         <Route path="/testWords" element={<TestWords/>}/>
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/pass" element={<PassedWords />} />
+        <Route path="/fail" element={<FailedWords />} />
       </Routes>
     </>
   )

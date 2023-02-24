@@ -18,27 +18,31 @@ export const useTestWords = () => {
   // ** state
   const [currentIndex, setCurrentIndex] = useState(0)
   const [display, setDisplay] = useState(false)
-  const [rightWords, setRightWords] = useState(null)
-  const [wrongWords, setWrongWords] = useState(null)
+  const [passedWords, setPassedWords] = useState(null)
+  const [failedWords, setFailedWords] = useState(null)
   const [randomAnswer, setRandomAnswer] = useState(null)
+  const [filterPassed, setFilterPassed] = useState(null)
+  const [filterFailed, setFilterFailed] = useState(null)
 
   // 테스트 내용 추가
   const addHistoryTest = () => {
-    setLoginUser((loginUser) => {
-      return {
-        ...loginUser,
-        historyTest: {
-          pass: [
-            ...loginUser.historyTest.pass.filter((item) => wrongWords.some((other) => item.id !== other.id)),
-            ...rightWords,
-          ],
-          failed: [
-            ...loginUser.historyTest.failed.filter((item) => rightWords.some((other) => item.id !== other.id)),
-            ...wrongWords,
-          ]
+    if(loginUser){
+      setLoginUser((loginUser) => {
+        return {
+          ...loginUser,
+          historyTest: {
+            passed: [
+              ...filterPassed,
+              ...passedWords,
+            ],
+            failed: [
+              ...filterFailed,
+              ...failedWords,
+            ]
+          }
         }
-      }
-    })
+      })
+    }
   }
 
   // 테스트 진행
@@ -82,14 +86,16 @@ export const useTestWords = () => {
       }
     })
     setDisplay(false)
-    setRightWords(null)
+    setPassedWords(null)
+    setFailedWords(null)
   }
 
   // 시험끝나면
   const endExam = () => {
     addHistoryTest()
     setDisplay(false)
-    setRightWords(null)
+    setPassedWords(null)
+    setFailedWords(null)
     navigate('/')
   }
 
@@ -103,15 +109,31 @@ export const useTestWords = () => {
   useEffect(() => {
     if (selectedStep) {
       handleRandom()
-      setRightWords(selectedStep.filter((item) => item.passedTest))
-      setWrongWords(selectedStep.filter((item) => !item.passedTest))
+      setPassedWords(selectedStep.filter((item) => item.passedTest))
+      setFailedWords(selectedStep.filter((item) => !item.passedTest))
     }
   }, [selectedStep])
+
+  useEffect(() => {
+    if(passedWords !== null){
+      const filterHistoryPass = loginUser.historyTest.passed.filter((item) => {
+        return !failedWords.some((other) => item.id === other.id)
+      })
+      setFilterPassed(filterHistoryPass)
+    }
+    if(failedWords !== null){
+      const filterHistoryFail = loginUser.historyTest.failed.filter((item) => {
+        return !passedWords.some((other) => item.id === other.id)
+      })
+      setFilterFailed(filterHistoryFail)
+    }
+  }, [passedWords, failedWords])
+
 
   return {
     currentIndex,
     display,
-    rightWords,
+    passedWords,
     randomAnswer,
     handleTest,
     makeupExam,

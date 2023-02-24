@@ -24,7 +24,7 @@ const TestWords = () => {
   const {
     currentIndex,
     display,
-    rightWords,
+    passedWords,
     randomAnswer,
     handleTest,
     makeupExam,
@@ -61,7 +61,7 @@ const TestWords = () => {
       <Modal name={'Result'} display={display}>
         <div className="result__count">
           <span>
-            {rightWords !== null ? rightWords.length : 0}
+            {passedWords !== null ? passedWords.length : 0}
           </span>
           &nbsp;/&nbsp;
           {selectedStep.length}

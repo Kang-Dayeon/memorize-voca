@@ -3,6 +3,7 @@ import React, {useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
 // ** store
 import {useWords} from '../../store/useWords'
+import {useUser} from '../../../auth/store/useUser'
 // ** component
 import SlickSlider from '../../../../components/slide/Slider'
 
@@ -13,10 +14,35 @@ const Memorize = () => {
 
   // ** store
   const {selectedCategory, selectedStep, setSelectedStep} = useWords()
+  const {setLoginUser} = useUser()
 
   const navigateTest = () => {
     navigate('/testWords')
   }
+
+  const addHistoryLearn = () => {
+    if(selectedStep){
+      setLoginUser((loginUser) => {
+        return {
+          ...loginUser,
+          historyLearn: [
+            ...loginUser.historyLearn,
+            {
+              category: selectedStep[0].category,
+              step: selectedStep[0].step,
+              date: new Date().toLocaleString()
+            },
+          ],
+        }
+      })
+    }
+  }
+  useEffect(() => {
+    if(selectedStep){
+      addHistoryLearn()
+    }
+  }, [selectedStep])
+
 
   useEffect(() => {
     if ((params.key) &&

@@ -1,35 +1,17 @@
 import {useEffect, useState} from 'react'
-import {useWords} from '../pages/words/store/useWords'
 import {useUser} from '../pages/auth/store/useUser'
 
 function useUpdateData() {
   // ** recoil
-  const {selectedStep} = useWords()
   const {users, setUsers, loginUser, setLoginUser} = useUser()
 
+  // ** state
   const [testWord, setTestWord] = useState(null)
-
-  // 학습한 내용 유저에 업데이트
-  const addHistory = () => {
-    setLoginUser((loginUser) => {
-      return {
-        ...loginUser,
-        historyLearn: [
-          ...loginUser.historyLearn,
-          {
-            category: selectedStep[0].category,
-            step: selectedStep[0].step,
-            date: new Date().toLocaleString()
-          },
-        ],
-      }
-    })
-  }
 
   // 테스트 내용 업데이트시 중복되는 단어 필터링
   useEffect(() => {
-    if(testWord !== null){
-      const passWord = testWord.pass
+    if(testWord){
+      const passWord = testWord.passed
       const failedWord = testWord.failed
       const filterPassWord = passWord.reduce((acc,current) => {
         if(acc.findIndex(({id}) => id === current.id) === -1){
@@ -48,7 +30,7 @@ function useUpdateData() {
         return {
           ...loginUser,
           historyTest: {
-            pass: filterPassWord,
+            passed: filterPassWord,
             failed: filterFailedWord,
           },
         }
@@ -69,13 +51,6 @@ function useUpdateData() {
       }
     }
   }, [loginUser])
-
-  // 로그인 유저가 레벨 학습시 히스토리 업로드
-  useEffect(() => {
-    if (selectedStep) {
-      addHistory()
-    }
-  }, [selectedStep])
 
 }
 
