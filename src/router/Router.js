@@ -4,14 +4,15 @@ import {Routes, Route, Navigate, useNavigate} from 'react-router-dom'
 // ** store
 import {useUser} from '../pages/auth/store/useUser'
 // ** pages
-import Login from '../pages/auth/login'
+import SignIn from '../pages/auth/signIn'
+import SignUp from '../pages/auth/signUp'
 import WordCategory from '../pages/words/wordCategory'
 import Steps from '../pages/words/wordCategory/steps'
 import Memorize from '../pages/words/wordCategory/memorize'
-import TestWords from '../pages/words/wordCategory/testWords'
+import TestVoca from '../pages/words/wordCategory/testVoca'
 import MyPage from '../pages/mypage'
-import PassedWords from '../pages/mypage/testResult/passedWords'
-import FailedWords from '../pages/mypage/testResult/failedWords'
+import Passed from '../pages/mypage/testResult/passed'
+import Failed from '../pages/mypage/testResult/failed'
 
 const Router = () => {
   // ** react
@@ -24,7 +25,7 @@ const Router = () => {
     if (isLogin) {
       return '/wordCategory'
     } else {
-      return '/login'
+      return '/sign-in'
     }
   }
 
@@ -32,7 +33,7 @@ const Router = () => {
     if (isLogin) {
       navigate('/wordCategory')
     } else {
-      navigate('/login')
+      navigate('/sign-in')
     }
   }, [isLogin])
 
@@ -40,14 +41,15 @@ const Router = () => {
     <>
       <Routes>
         <Route path="/" element={<Navigate replace to={homeRoute()}/>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/sign-in" element={<SignIn/>}/>
+        <Route path="/sign-up" element={<SignUp/>}/>
         <Route path="/wordCategory" element={<WordCategory/>}/>
         <Route path="/steps/:key" element={<Steps/>}/>
         <Route path="/memorize/:key" element={<Memorize/>}/>
-        <Route path="/testWords" element={<TestWords/>}/>
+        <Route path="/test-voca" element={<TestVoca/>}/>
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/pass" element={<PassedWords />} />
-        <Route path="/fail" element={<FailedWords />} />
+        <Route path="/pass" element={<Passed />} />
+        <Route path="/fail" element={<Failed />} />
       </Routes>
     </>
   )

@@ -1,6 +1,7 @@
 .input{
   display: inline-block;
-  padding: 5px 7px;
+  padding: 7px 10px;
+  font-size: 14px;
   border-radius: 5px;
   -webkit-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
   box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
@@ -10,11 +11,6 @@
     margin-top: 15px;
     &:first-child{
       margin-top: 0;
-    }
-    label{
-      display: block;
-      font-weight: bold;
-      line-height: 1.5;
     }
     .input{
       margin-top: 5px;

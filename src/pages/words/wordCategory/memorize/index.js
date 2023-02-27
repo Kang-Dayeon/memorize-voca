@@ -17,7 +17,7 @@ const Memorize = () => {
   const {setLoginUser} = useUser()
 
   const navigateTest = () => {
-    navigate('/testWords')
+    navigate('/testVoca-voca')
   }
 
   const addHistoryLearn = () => {

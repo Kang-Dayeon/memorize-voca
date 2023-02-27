@@ -5,12 +5,11 @@ import {Link} from 'react-router-dom'
 // ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faUser, faHouse, faSquarePlus} from '@fortawesome/free-solid-svg-icons'
-import AddWords from '../../pages/words/addWords'
+import AddWords from '../../pages/words/addVoca'
 
 const Navigation = () => {
   const [display, setDisplay] = useState(false)
-  const toggleDisplay = (e) => {
-    e.preventDefault()
+  const toggleDisplay = () => {
     setDisplay(!display)
   }
   return (
@@ -27,7 +26,7 @@ const Navigation = () => {
               <FontAwesomeIcon icon={faHouse}/>
             </Link>
           </li>
-          <li className="anb-list__item" onClick={(e) => toggleDisplay(e)}>
+          <li className="anb-list__item" onClick={() => toggleDisplay()}>
             <Link>
               <FontAwesomeIcon icon={faSquarePlus}/>
             </Link>

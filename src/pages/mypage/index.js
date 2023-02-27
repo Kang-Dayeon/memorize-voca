@@ -19,7 +19,7 @@ const MyPage = () => {
     navigate('/fail')
   }
 
-  const logout = () => {
+  const signOut = () => {
     setIsLogin(false)
     resetUser()
     navigate('/')
@@ -42,9 +42,9 @@ const MyPage = () => {
             loginUser.historyLearn.length > 0 ?
               <li className="list">
                 <div className="list__title">
-              <span className="list__icon">
-                <FontAwesomeIcon icon={faUserNinja} />
-              </span>
+                  <span className="list__icon">
+                    <FontAwesomeIcon icon={faUserNinja} />
+                  </span>
                   Last Study :&nbsp;
                   {loginUser.historyLearn[loginUser.historyLearn.length - 1].category}
                   &nbsp;/&nbsp;
@@ -56,6 +56,7 @@ const MyPage = () => {
                   <span className="list__icon">
                     <FontAwesomeIcon icon={faUserNinja} />
                   </span>
+                  Last Study :&nbsp;
                 </div>
               </li>
           }
@@ -67,13 +68,13 @@ const MyPage = () => {
           <span className="btn__icon">
             <FontAwesomeIcon icon={faCheck} />
           </span>
-          Passed Word
+          Passed
         </button>
         <button className="btn btn__big" onClick={() => navigateFail()}>
           <span className="btn__icon">
             <FontAwesomeIcon icon={faXmark} />
           </span>
-          Failed Word
+          Failed
         </button>
       </div>
       <h4 className="sub-title">Timeline</h4>
@@ -97,7 +98,7 @@ const MyPage = () => {
         </ul>
       </div>
       <div className="logout">
-        <button className="btn btn__big" onClick={() => logout()}>Logout</button>
+        <button className="btn btn__big" onClick={() => signOut()}>Sign out</button>
       </div>
     </div>
   )

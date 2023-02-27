@@ -1,15 +1,15 @@
 // ** react
 import React, {useEffect} from 'react'
-import {useParams, useNavigate} from 'react-router-dom'
+import {useNavigate, useLocation} from 'react-router-dom'
 // ** store
 import {useWords} from '../../words/store/useWords'
 import {useUser} from '../../auth/store/useUser'
 // ** component
 import SlickSlider from '../../../components/slide/Slider'
 
-const FailedWords = () => {
+const Failed = () => {
   // ** react
-  const params = useParams()
+  const location = useLocation()
   const navigate = useNavigate()
 
   // ** store
@@ -17,16 +17,16 @@ const FailedWords = () => {
   const {loginUser} = useUser()
 
   const navigateTest = () => {
-    navigate('/testWords')
+    navigate('/testVoca')
   }
 
   useEffect(() => {
-    if (params) {
+    if ((location.pathname === '/fail') && loginUser) {
       setSelectedStep(loginUser.historyTest.failed)
     } else {
       navigate('/')
     }
-  }, [])
+  }, [location.pathname])
 
   if (!selectedStep) return
 
@@ -45,4 +45,4 @@ const FailedWords = () => {
   )
 }
 
-export default FailedWords
+export default Failed

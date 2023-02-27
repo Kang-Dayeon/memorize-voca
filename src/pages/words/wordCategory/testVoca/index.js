@@ -15,7 +15,7 @@ import {
   faCircleCheck,
 } from '@fortawesome/free-solid-svg-icons'
 
-const TestWords = () => {
+const TestVoca = () => {
   // TODO : 영어도 랜덤으로 보여주기
 
   // ** store
@@ -100,4 +100,4 @@ const TestWords = () => {
   )
 }
 
-export default TestWords
+export default TestVoca

@@ -1,0 +1,31 @@
+table{
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: hidden;
+  overflow-y: auto;
+  thead{
+    background-color: $color-main;
+    color: $color-white;
+    font-size: 14px;
+    th{
+      padding: 10px 5px;
+    }
+  }
+  tbody{
+    tr{
+      &:nth-child(2n){
+        background-color: $color-white;
+      }
+    }
+    td{
+      padding: 10px 5px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.5;
+      &:first-child{
+        font-weight: bold;
+      }
+    }
+  }
+}

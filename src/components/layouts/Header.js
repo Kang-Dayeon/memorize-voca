@@ -19,14 +19,15 @@ const Header = () => {
     <div className="header">
       <div className="back-arrow">
         {
-          ((location.pathname === '/login') ||
+          ((location.pathname === '/sign-in') ||
+            (location.pathname === '/sign-up') ||
             (location.pathname === '/wordCategory')) ? <></>
             : <button className="btn" onClick={() => navigate(-1)}>
               <FontAwesomeIcon icon={faAngleLeft}/>
             </button>
         }
       </div>
-      <h1 className="header__title">Memorize Words</h1>
+      <h1 className="header__title">Memorize VOCA 📚</h1>
     </div>
   )
 }

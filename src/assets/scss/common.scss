@@ -11,15 +11,16 @@
 @import "./layouts/gnb";
 
 //components
+@import "./components/form/form";
 @import "./components/button/button";
 @import "./components/input/input";
 @import "./components/slide/slide";
 @import "./components/list/list";
 @import "./components/card/card";
 @import "./components/modal/modal";
+@import "./components/table/table";
 
 // pages
-@import "./pages/login/login";
 @import "./pages/common/common";
 @import "./pages/words/wordCategory.scss";
 @import "./pages/words/steps";
