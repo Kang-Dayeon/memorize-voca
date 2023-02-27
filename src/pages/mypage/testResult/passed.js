@@ -43,12 +43,13 @@ const Passed = () => {
 
   const data = useMemo(
     () =>
+      selectedStep ?
       Array(selectedStep.length).fill().map((item, i) => ({
         english: selectedStep[i].english,
         korean: selectedStep[i].korean,
         category: selectedStep[i].category,
         level: selectedStep[i].step,
-      })),
+      })) : '',
     [],
   )
 
@@ -59,7 +60,7 @@ const Passed = () => {
   }
 
   useEffect(() => {
-    if ((location.pathname === '/pass') && loginUser) {
+    if ((location.pathname === '/pass') && selectedStep) {
       setSelectedStep(loginUser.historyTest.passed)
     } else {
       navigate('/')
@@ -71,7 +72,7 @@ const Passed = () => {
   return (
     <div className="passed-words">
       <h4 className="sub-title">Passed List</h4>
-      <Table columns={columns} data={data}/>
+      {selectedStep ? <Table columns={columns} data={data}/> : <></>}
       <div className="btn__wrap">
         {
           (selectedStep.length > 0) ?

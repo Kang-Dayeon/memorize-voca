@@ -1,4 +1,4 @@
-import {atom, useRecoilState} from 'recoil'
+import {atom, useRecoilState, useResetRecoilState} from 'recoil'
 import {recoilPersist} from 'recoil-persist'
 import {words} from '../../../database/words'
 
@@ -24,9 +24,9 @@ const selectedStepState = atom({
 
 export const useWords = () => {
   const [words, setWords] = useRecoilState(wordsState)
-  const [selectedCategory, setSelectedCategory] = useRecoilState(
-    selectedCategoryState)
+  const [selectedCategory, setSelectedCategory] = useRecoilState(selectedCategoryState)
   const [selectedStep, setSelectedStep] = useRecoilState(selectedStepState)
+  const resetWords = useResetRecoilState(selectedStepState)
 
   return {
     words,
@@ -35,5 +35,6 @@ export const useWords = () => {
     setSelectedCategory,
     selectedStep,
     setSelectedStep,
+    resetWords,
   }
 }
