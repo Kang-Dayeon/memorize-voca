@@ -1,4 +1,11 @@
 .add-words{
+  .form{
+    &__wrap{
+      margin-top: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+  }
   .input{
     padding: 7px 10px;
     font-size: 18px;
