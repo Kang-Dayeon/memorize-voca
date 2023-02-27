@@ -9,7 +9,7 @@ import SignUp from '../pages/auth/signUp'
 import WordCategory from '../pages/words/wordCategory'
 import Steps from '../pages/words/wordCategory/steps'
 import Memorize from '../pages/words/wordCategory/memorize'
-import TestVoca from '../pages/words/wordCategory/testVoca'
+import Test from '../pages/words/wordCategory/test'
 import MyPage from '../pages/mypage'
 import Passed from '../pages/mypage/testResult/passed'
 import Failed from '../pages/mypage/testResult/failed'
@@ -46,10 +46,10 @@ const Router = () => {
         <Route path="/wordCategory" element={<WordCategory/>}/>
         <Route path="/steps/:key" element={<Steps/>}/>
         <Route path="/memorize/:key" element={<Memorize/>}/>
-        <Route path="/test-voca" element={<TestVoca/>}/>
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/pass" element={<Passed />} />
-        <Route path="/fail" element={<Failed />} />
+        <Route path="/test" element={<Test/>}/>
+        <Route path="/my-page" element={<MyPage/>}/>
+        <Route path="/pass" element={<Passed/>}/>
+        <Route path="/fail" element={<Failed/>}/>
       </Routes>
     </>
   )

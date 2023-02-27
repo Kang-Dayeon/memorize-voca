@@ -10,7 +10,7 @@ const SignIn = () => {
   const {users, setLoginUser, setIsLogin} = useUser()
 
   // ** react library
-  const { register, handleSubmit } = useForm()
+  const {register, handleSubmit} = useForm()
 
   const handleLogin = (data) => {
     if (!users.some((user) => user.loginId === data.loginId)) {
@@ -19,25 +19,29 @@ const SignIn = () => {
       alert('비밀번호가 일치하지 않습니다')
     } else {
       const find = users.find(
-        (user) => (user.loginId === data.loginId) && (user.password === data.password))
+        (user) => (user.loginId === data.loginId) &&
+          (user.password === data.password))
       setLoginUser({...find})
       setIsLogin(true)
     }
   }
 
   const handleError = (errors) => {
-    errors.loginId ? alert(errors.loginId.message) : alert(errors.password.message)
+    errors.loginId ?
+      alert(errors.loginId.message) :
+      alert(errors.password.message)
   }
 
   return (
     <div className="form">
       <div className="form__wrap">
         <h3 className="form__title">Sign in</h3>
-        <form className="form__content" onSubmit={handleSubmit(handleLogin, handleError)}>
+        <form className="form__content"
+              onSubmit={handleSubmit(handleLogin, handleError)}>
           <input className="input"
                  type="text"
                  placeholder="write your ID"
-                 {...register("loginId", {
+                 {...register('loginId', {
                    required: 'Check your ID',
                  })}
           />

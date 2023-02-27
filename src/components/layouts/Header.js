@@ -20,7 +20,6 @@ const Header = () => {
       <div className="back-arrow">
         {
           ((location.pathname === '/sign-in') ||
-            (location.pathname === '/sign-up') ||
             (location.pathname === '/wordCategory')) ? <></>
             : <button className="btn" onClick={() => navigate(-1)}>
               <FontAwesomeIcon icon={faAngleLeft}/>

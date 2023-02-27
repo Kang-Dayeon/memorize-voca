@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 // ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faUser, faHouse, faSquarePlus} from '@fortawesome/free-solid-svg-icons'
-import AddWords from '../../pages/words/addVoca'
+import AddWords from '../../pages/words/addWord'
 
 const Navigation = () => {
   const [display, setDisplay] = useState(false)
@@ -17,7 +17,7 @@ const Navigation = () => {
       <div className="anb__wrap">
         <ul className="anb-list">
           <li className="anb-list__item">
-            <Link to={'/mypage'}>
+            <Link to={'/my-page'}>
               <FontAwesomeIcon icon={faUser}/>
             </Link>
           </li>
@@ -32,7 +32,7 @@ const Navigation = () => {
             </Link>
           </li>
         </ul>
-        <AddWords display={display} toggleDisplay={toggleDisplay} />
+        <AddWords display={display} toggleDisplay={toggleDisplay}/>
       </div>
     </div>
   )

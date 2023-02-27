@@ -17,7 +17,7 @@ const Failed = () => {
   const {loginUser} = useUser()
 
   const navigateTest = () => {
-    navigate('/testVoca')
+    navigate('/test')
   }
 
   useEffect(() => {

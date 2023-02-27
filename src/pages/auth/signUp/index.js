@@ -27,14 +27,14 @@ const SignUp = () => {
       },
     }
 
-    if(users.some((user) => user.loginId === data.loginId)){
+    if (users.some((user) => user.loginId === data.loginId)) {
       alert('The ID that already exists.')
       console.log(users.some((user) => user.loginId === data.loginId))
     } else {
       setUsers((users) => {
         return [
           ...users,
-          signUpUser
+          signUpUser,
         ]
       })
       navigate('/sign-in')
@@ -51,15 +51,16 @@ const SignUp = () => {
     <div className="form">
       <div className="form__wrap">
         <h3 className="form__title">Sign up</h3>
-        <form className="form__content" onSubmit={handleSubmit(handleSignUp, handleError)}>
+        <form className="form__content"
+              onSubmit={handleSubmit(handleSignUp, handleError)}>
           <label htmlFor="name">Name</label>
           <input className="input"
                  id="name"
                  type="text"
                  placeholder="Write your name (Min 2 Max 15 letter)"
-                 {...register("name", {
+                 {...register('name', {
                    required: 'Check your name',
-                   pattern: /^[가-힣a-zA-Z]{2,15}$/
+                   pattern: /^[가-힣a-zA-Z]{2,15}$/,
                  })}
           />
           <label htmlFor="loginId">ID</label>
@@ -67,9 +68,9 @@ const SignUp = () => {
                  id="loginId"
                  type="text"
                  placeholder="Letters and numbers(Min 4 Max 12 letter)"
-                 {...register("loginId", {
+                 {...register('loginId', {
                    required: 'Combination of letters and numbers(Min 4 Max 12 letter)',
-                   pattern: /^[a-zA-Z0-9]{4,12}$/
+                   pattern: /^[a-zA-Z0-9]{4,12}$/,
                  })}
           />
           <label htmlFor="password">Password</label>
@@ -79,7 +80,7 @@ const SignUp = () => {
                  placeholder="Letters and numbers(Min 4 Max 12 letter)"
                  {...register('password', {
                    required: 'Combination of letters and numbers(Min 4 Max 12 letter)',
-                   pattern: /^[a-zA-Z0-9]{4,12}$/
+                   pattern: /^[a-zA-Z0-9]{4,12}$/,
                  })}
           />
           <button className="form__btn btn" type="submit">Sign up</button>

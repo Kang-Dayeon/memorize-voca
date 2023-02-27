@@ -17,11 +17,11 @@ const Memorize = () => {
   const {setLoginUser} = useUser()
 
   const navigateTest = () => {
-    navigate('/testVoca-voca')
+    navigate('/test')
   }
 
   const addHistoryLearn = () => {
-    if(selectedCategory.length > 0 && selectedStep.length > 0){
+    if (selectedCategory.length > 0 && selectedStep.length > 0) {
       setLoginUser((loginUser) => {
         return {
           ...loginUser,
@@ -30,7 +30,7 @@ const Memorize = () => {
             {
               category: selectedStep[0].category,
               step: selectedStep[0].step,
-              date: new Date().toLocaleString()
+              date: new Date().toLocaleString(),
             },
           ],
         }
@@ -38,16 +38,16 @@ const Memorize = () => {
     }
   }
   useEffect(() => {
-    if(selectedStep){
+    if (selectedStep) {
       addHistoryLearn()
     }
   }, [selectedStep])
 
-
   useEffect(() => {
     if ((params.key) &&
       selectedCategory.filter((item) => item.step === params.key)) {
-      const filterStep = selectedCategory.filter((item) => item.step === params.key)
+      const filterStep = selectedCategory.filter(
+        (item) => item.step === params.key)
       setSelectedStep(filterStep)
     } else {
       navigate('/')

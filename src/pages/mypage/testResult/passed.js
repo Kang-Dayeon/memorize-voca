@@ -38,24 +38,24 @@ const Passed = () => {
         Header: 'Level',
       },
     ],
-    []
+    [],
   )
 
   const data = useMemo(
     () =>
-    Array(selectedStep.length).fill().map((item, i) => ({
-      english: selectedStep[i].english,
-      korean: selectedStep[i].korean,
-      category: selectedStep[i].category,
-      level: selectedStep[i].step,
-    })),
-    []
-  );
+      Array(selectedStep.length).fill().map((item, i) => ({
+        english: selectedStep[i].english,
+        korean: selectedStep[i].korean,
+        category: selectedStep[i].category,
+        level: selectedStep[i].step,
+      })),
+    [],
+  )
 
   // console.log(data)
 
   const navigateTest = () => {
-    navigate('/testVoca')
+    navigate('/test')
   }
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const Passed = () => {
   return (
     <div className="passed-words">
       <h4 className="sub-title">Passed List</h4>
-      <Table columns={columns} data={data} />
+      <Table columns={columns} data={data}/>
       <div className="btn__wrap">
         {
           (selectedStep.length > 0) ?
