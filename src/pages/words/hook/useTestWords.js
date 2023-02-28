@@ -102,7 +102,7 @@ export const useTestWords = () => {
   const handleRandom = () => {
     const testWords = []
     const answer = selectedStep.find((item) => item.korean === selectedStep[currentIndex].korean)
-    for(let i = testWords.length; i <= 4; i++){
+    for(let i = testWords.length; i < 4; i++){
       let randomIdx = Math.floor(Math.random() * words.length)
       if(testWords.map((item) => item !== words[randomIdx].korean) && words[randomIdx].korean !== answer.korean){
         testWords.push(words[randomIdx].korean)
