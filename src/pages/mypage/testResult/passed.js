@@ -49,23 +49,22 @@ const Passed = () => {
         korean: selectedStep[i].korean,
         category: selectedStep[i].category,
         level: selectedStep[i].step,
-      })) : '',
+      })) : [],
     [],
   )
-
-  // console.log(data)
 
   const navigateTest = () => {
     navigate('/test')
   }
 
+  // error: pass 업로드 하는게 페이지 두번들어가야지 됨..
   useEffect(() => {
-    if ((location.pathname === '/pass') && selectedStep) {
+    if (loginUser){
       setSelectedStep(loginUser.historyTest.passed)
     } else {
       navigate('/')
     }
-  }, [location.pathname])
+  }, [loginUser])
 
   if (!selectedStep) return
 

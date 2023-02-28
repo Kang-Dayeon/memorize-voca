@@ -98,6 +98,7 @@ export const useTestWords = () => {
   }
 
   // 한국어 리스트 랜덤으로 뿌려주기
+  // error: 정답 포함 5개만 뿌려줘야되는데 갯수가 다르게 뿌려짐
   const handleRandom = () => {
     const testWords = []
     const answer = selectedStep.find((item) => item.korean === selectedStep[currentIndex].korean)
