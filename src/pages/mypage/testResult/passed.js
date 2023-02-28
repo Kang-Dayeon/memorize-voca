@@ -72,7 +72,7 @@ const Passed = () => {
   return (
     <div className="passed-words">
       <h4 className="sub-title">Passed List</h4>
-      {selectedStep ? <Table columns={columns} data={data}/> : <></>}
+      <Table columns={columns} data={data}/>
       <div className="btn__wrap">
         {
           (selectedStep.length > 0) ?

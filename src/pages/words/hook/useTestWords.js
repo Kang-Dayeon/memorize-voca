@@ -6,13 +6,11 @@ import {useWords} from '../store/useWords'
 import {useUser} from '../../auth/store/useUser'
 
 export const useTestWords = () => {
-  // TODO : 로그인 유저에 맞고 틀린 단어 추가시 기존 기록에서 틀린단어나 맞는 단어 중복되지 않게 필터링
-
   // ** react
   const navigate = useNavigate()
 
   // ** store
-  const {selectedStep, setSelectedStep} = useWords()
+  const {words, selectedStep, setSelectedStep} = useWords()
   const {loginUser, setLoginUser} = useUser()
 
   // ** state
@@ -101,7 +99,15 @@ export const useTestWords = () => {
 
   // 한국어 리스트 랜덤으로 뿌려주기
   const handleRandom = () => {
-    const testWords = selectedStep.filter((item) => item.korean)
+    const testWords = []
+    const answer = selectedStep.find((item) => item.korean === selectedStep[currentIndex].korean)
+    for(let i = testWords.length; i <= 4; i++){
+      let randomIdx = Math.floor(Math.random() * words.length)
+      if(testWords.map((item) => item !== words[randomIdx].korean) && words[randomIdx].korean !== answer.korean){
+        testWords.push(words[randomIdx].korean)
+      }
+    }
+    testWords.push(answer.korean)
     testWords.sort(() => Math.random() - 0.5)
     setRandomAnswer(testWords)
   }

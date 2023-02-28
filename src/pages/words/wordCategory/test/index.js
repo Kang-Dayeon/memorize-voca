@@ -48,9 +48,9 @@ const Test = () => {
               randomAnswer.map((list) => {
                 return (
                   <li className="list list__round"
-                      onClick={() => handleTest(list.korean)}>
+                      onClick={() => handleTest(list)}>
                     <div className="list__title">
-                      {list.korean}
+                      {list}
                     </div>
                   </li>
                 )
