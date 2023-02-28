@@ -1,6 +1,6 @@
 // ** react
 import React, {useEffect, useMemo} from 'react'
-import {useNavigate, useLocation} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 // ** store
 import {useWords} from '../../words/store/useWords'
 import {useUser} from '../../auth/store/useUser'
@@ -9,7 +9,6 @@ import Table from '../../../components/table/Table'
 
 const Passed = () => {
   // ** react
-  const location = useLocation()
   const navigate = useNavigate()
 
   // ** store
@@ -41,23 +40,18 @@ const Passed = () => {
     [],
   )
 
-  const data = useMemo(
-    () =>
-      selectedStep ?
+  const data = selectedStep ?
       Array(selectedStep.length).fill().map((item, i) => ({
         english: selectedStep[i].english,
         korean: selectedStep[i].korean,
         category: selectedStep[i].category,
         level: selectedStep[i].step,
-      })) : [],
-    [],
-  )
+      })) : []
 
   const navigateTest = () => {
     navigate('/test')
   }
 
-  // error: pass 업로드 하는게 페이지 두번들어가야지 됨..
   useEffect(() => {
     if (loginUser){
       setSelectedStep(loginUser.historyTest.passed)

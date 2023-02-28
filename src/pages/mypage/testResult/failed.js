@@ -1,6 +1,6 @@
 // ** react
 import React, {useEffect} from 'react'
-import {useNavigate, useLocation} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 // ** store
 import {useWords} from '../../words/store/useWords'
 import {useUser} from '../../auth/store/useUser'
@@ -9,7 +9,6 @@ import SlickSlider from '../../../components/slide/Slider'
 
 const Failed = () => {
   // ** react
-  const location = useLocation()
   const navigate = useNavigate()
 
   // ** store
@@ -21,12 +20,12 @@ const Failed = () => {
   }
 
   useEffect(() => {
-    if ((location.pathname === '/fail') && loginUser) {
+    if (loginUser) {
       setSelectedStep(loginUser.historyTest.failed)
     } else {
       navigate('/')
     }
-  }, [location.pathname])
+  }, [loginUser])
 
   if (!selectedStep) return
 
