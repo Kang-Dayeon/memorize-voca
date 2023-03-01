@@ -100,17 +100,18 @@ export const useTestWords = () => {
   // 한국어 리스트 랜덤으로 뿌려주기
   // error: 정답 포함 5개만 뿌려줘야되는데 갯수가 다르게 뿌려짐
   const handleRandom = () => {
-    const testWords = []
-    const answer = selectedStep.find((item) => item.korean === selectedStep[currentIndex].korean)
-    for(let i = testWords.length; i < 4; i++){
-      let randomIdx = Math.floor(Math.random() * words.length)
-      if(testWords.map((item) => item !== words[randomIdx].korean) && words[randomIdx].korean !== answer.korean){
-        testWords.push(words[randomIdx].korean)
+    const randomArray = []
+    randomArray.push(selectedStep[currentIndex].korean)
+    for(let i = 0; i < 4; i++){
+      let randomNum = Math.floor(Math.random() * words.length)
+      if((randomArray.indexOf(randomNum) === -1)){
+        randomArray.push(words[randomNum].korean)
+      } else {
+        i--
       }
     }
-    testWords.push(answer.korean)
-    testWords.sort(() => Math.random() - 0.5)
-    setRandomAnswer(testWords)
+    randomArray.sort(() => Math.random() - 0.5)
+    setRandomAnswer(randomArray)
   }
 
   useEffect(() => {
