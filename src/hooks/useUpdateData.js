@@ -11,15 +11,13 @@ function useUpdateData() {
   // 테스트 내용 업데이트시 중복되는 단어 필터링
   useEffect(() => {
     if(testWord){
-      const passWord = testWord.passed
-      const failedWord = testWord.failed
-      const filterPassWord = passWord.reduce((acc,current) => {
+      const filterPassWord = testWord.passed.reduce((acc,current) => {
         if(acc.findIndex(({id}) => id === current.id) === -1){
           acc.push(current)
         }
         return acc
       }, [])
-      const filterFailedWord = failedWord.reduce((acc,current) => {
+      const filterFailedWord = testWord.failed.reduce((acc,current) => {
         if(acc.findIndex(({id}) => id === current.id) === -1){
           acc.push(current)
         }

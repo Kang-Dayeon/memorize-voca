@@ -60,7 +60,10 @@ const SignUp = () => {
                  placeholder="Write your name (Min 2 Max 15 letter)"
                  {...register('name', {
                    required: 'Check your name',
-                   pattern: /^[가-힣a-zA-Z]{2,15}$/,
+                   pattern: {
+                     value: /^[가-힣a-zA-Z]{2,15}$/,
+                     message: 'Name is only string'
+                   }
                  })}
           />
           <label htmlFor="loginId">ID</label>
@@ -70,7 +73,10 @@ const SignUp = () => {
                  placeholder="Letters and numbers(Min 4 Max 12 letter)"
                  {...register('loginId', {
                    required: 'Combination of letters and numbers(Min 4 Max 12 letter)',
-                   pattern: /^[a-zA-Z0-9]{4,12}$/,
+                   pattern: {
+                     value: /^[a-zA-Z0-9]{4,12}$/,
+                     message: 'ID is combination of letters and numbers(Min 4 Max 12 letter)'
+                   }
                  })}
           />
           <label htmlFor="password">Password</label>
@@ -80,7 +86,10 @@ const SignUp = () => {
                  placeholder="Letters and numbers(Min 4 Max 12 letter)"
                  {...register('password', {
                    required: 'Combination of letters and numbers(Min 4 Max 12 letter)',
-                   pattern: /^[a-zA-Z0-9]{4,12}$/,
+                   pattern: {
+                   value: /^[a-zA-Z0-9]{4,12}$/,
+                   message: 'Paswword is Combination of letters and numbers(Min 4 Max 12 letter)'
+                 }
                  })}
           />
           <button className="form__btn btn" type="submit">Sign up</button>
