@@ -1,10 +1,10 @@
 // ** react
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-
 // ** icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faUser, faHouse, faSquarePlus} from '@fortawesome/free-solid-svg-icons'
+// ** popup
 import AddWords from '../../pages/words/addWord'
 
 const Navigation = () => {

@@ -33,20 +33,24 @@ const AddWord = ({display, toggleDisplay}) => {
   const {setData, selectedList} = useSelectList()
 
   const addWord = (data) => {
-    const newWord = {
-      id: words[words.length - 1].id + 1,
-      category: category.myWords,
-      step: data.level,
-      english: data.english,
-      korean: data.korean,
-      explanation: data.explanation,
+    if(words.map((item) => item.english === data.english)){
+      alert('a word that already exists')
+    } else {
+      const newWord = {
+        id: words[words.length - 1].id + 1,
+        category: category.myWords,
+        step: data.level,
+        english: data.english,
+        korean: data.korean,
+        explanation: data.explanation,
+      }
+      setWords((words) => {
+        return [
+          ...words,
+          newWord,
+        ]
+      })
     }
-    setWords((words) => {
-      return [
-        ...words,
-        newWord,
-      ]
-    })
     toggleDisplay()
   }
 
@@ -113,7 +117,7 @@ const AddWord = ({display, toggleDisplay}) => {
                    {...register('korean', {
                      required: 'Write korean mean',
                      pattern: {
-                       value: /^[가-힣]/,
+                       value: /^[가-힣a-zA-Z]/,
                        message: 'You can write only korean'
                      }
                    })}

@@ -1,3 +1,41 @@
+.table{
+  position: relative;
+  select{
+    position: absolute;
+    top: -35px;
+    right: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.5;
+    border: none;
+    color: $color-main;
+    background-color: transparent;
+  }
+  .pagination{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn{
+      margin-top: 0;
+      padding: 5px;
+      background-color: transparent;
+      color: $color-main;
+      font-weight: bold;
+      font-size: 16px;
+      &:disabled{
+        display: none;
+      }
+    }
+    span{
+      padding: 0 10px;
+      color: $color-light-gray;
+      strong{
+        color: $color-main;
+      }
+    }
+  }
+}
 table{
   margin-top: 20px;
   width: 100%;

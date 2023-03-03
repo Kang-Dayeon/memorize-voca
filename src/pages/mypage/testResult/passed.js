@@ -40,13 +40,15 @@ const Passed = () => {
     [],
   )
 
-  const data = selectedStep ?
-      Array(selectedStep.length).fill().map((item, i) => ({
-        english: selectedStep[i].english,
-        korean: selectedStep[i].korean,
-        category: selectedStep[i].category,
-        level: selectedStep[i].step,
-      })) : []
+  const data = useMemo(() =>
+    selectedStep ?
+    Array(selectedStep.length).fill().map((item, i) => ({
+      english: selectedStep[i].english,
+      korean: selectedStep[i].korean,
+      category: selectedStep[i].category,
+      level: selectedStep[i].step,
+    })) : []
+  ,[]);
 
   const navigateTest = () => {
     navigate('/test')
