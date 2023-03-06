@@ -7,7 +7,7 @@ import {useUser} from '../../auth/store/useUser'
 // ** component
 import SlickSlider from '../../../components/slide/Slider'
 
-const Failed = () => {
+const Relearning = () => {
   // ** react
   const navigate = useNavigate()
 
@@ -44,4 +44,4 @@ const Failed = () => {
   )
 }
 
-export default Failed
+export default Relearning

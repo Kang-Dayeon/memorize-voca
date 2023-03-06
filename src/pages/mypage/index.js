@@ -21,12 +21,16 @@ const MyPage = () => {
   // ** react
   const navigate = useNavigate()
 
-  const navigatePass = () => {
-    navigate('/pass')
+  const navigateResult = (key) => {
+    navigate('/result/' + key)
   }
 
   const navigateFail = () => {
     navigate('/fail')
+  }
+
+  const navigateRelearning = () => {
+    navigate('/relearning')
   }
 
   const signOut = () => {
@@ -77,17 +81,23 @@ const MyPage = () => {
       </div>
       <h4 className="sub-title">Test Result</h4>
       <div className="btn__wrap">
-        <button className="btn btn__big" onClick={() => navigatePass()}>
+        <button className="btn btn__big" onClick={() => navigateResult('pass')}>
           <span className="btn__icon">
             <FontAwesomeIcon icon={faCheck}/>
           </span>
           Passed
         </button>
-        <button className="btn btn__big" onClick={() => navigateFail()}>
+        <button className="btn btn__big" onClick={() => navigateResult('fail')}>
           <span className="btn__icon">
             <FontAwesomeIcon icon={faXmark}/>
           </span>
           Failed
+        </button>
+      </div>
+      <h4 className="sub-title">Failed Words Relearning</h4>
+      <div className="btn__wrap">
+        <button className="btn" onClick={() => navigateRelearning()}>
+          Relearning
         </button>
       </div>
       <h4 className="sub-title">Timeline</h4>

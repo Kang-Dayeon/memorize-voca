@@ -11,8 +11,8 @@ import Steps from '../pages/words/wordCategory/steps'
 import Memorize from '../pages/words/wordCategory/memorize'
 import Test from '../pages/words/wordCategory/test'
 import MyPage from '../pages/mypage'
-import Passed from '../pages/mypage/testResult/passed'
-import Failed from '../pages/mypage/testResult/failed'
+import TestResult from '../pages/mypage/testResult'
+import Relearning from '../pages/mypage/relearning'
 
 const Router = () => {
   // ** react
@@ -48,8 +48,8 @@ const Router = () => {
         <Route path="/memorize/:key" element={<Memorize/>}/>
         <Route path="/test" element={<Test/>}/>
         <Route path="/my-page" element={<MyPage/>}/>
-        <Route path="/pass" element={<Passed/>}/>
-        <Route path="/fail" element={<Failed/>}/>
+        <Route path="/result/:key" element={<TestResult/>} />
+        <Route path="/relearning" element={<Relearning />} />
       </Routes>
     </>
   )

@@ -1,15 +1,16 @@
 // ** react
 import React, {useEffect, useMemo} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 // ** store
 import {useWords} from '../../words/store/useWords'
 import {useUser} from '../../auth/store/useUser'
 // ** component
 import Table from '../../../components/table/Table'
 
-const Passed = () => {
+const TestResult = () => {
   // ** react
   const navigate = useNavigate()
+  const params = useParams()
 
   // ** store
   const {selectedStep, setSelectedStep} = useWords()
@@ -48,25 +49,29 @@ const Passed = () => {
       category: selectedStep[i].category,
       level: selectedStep[i].step,
     })) : []
-  ,[]);
+  ,[selectedStep]);
 
   const navigateTest = () => {
     navigate('/test')
   }
 
   useEffect(() => {
-    if (loginUser){
+    if (params.key === 'pass'){
       setSelectedStep(loginUser.historyTest.passed)
+    } else if(params.key === 'fail') {
+      setSelectedStep(loginUser.historyTest.failed)
     } else {
       navigate('/')
     }
-  }, [loginUser])
+  }, [params])
 
   if (!selectedStep) return
 
   return (
     <div className="passed-words">
-      <h4 className="sub-title">Passed List</h4>
+      <h4 className="sub-title">{
+        params.key === 'pass' ? 'Passed' : 'Failed'
+      } List</h4>
       <Table columns={columns} data={data}/>
       <div className="btn__wrap">
         {
@@ -81,4 +86,4 @@ const Passed = () => {
   )
 }
 
-export default Passed
+export default TestResult
