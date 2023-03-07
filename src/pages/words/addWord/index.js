@@ -33,8 +33,9 @@ const AddWord = ({display, toggleDisplay}) => {
   const {setData, selectedList} = useSelectList()
 
   const addWord = (data) => {
-    if(words.map((item) => item.english === data.english)){
+    if(words.some((item) => item.english === data.english)){
       alert('a word that already exists')
+      console.log(words.filter((item) => item.english === data.english))
     } else {
       const newWord = {
         id: words[words.length - 1].id + 1,

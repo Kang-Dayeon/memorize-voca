@@ -13,11 +13,19 @@ const Memorize = () => {
   const navigate = useNavigate()
 
   // ** store
-  const {selectedCategory, selectedStep, setSelectedStep} = useWords()
+  const {setWords, selectedCategory, selectedStep, setSelectedStep} = useWords()
   const {setLoginUser} = useUser()
 
   const navigateTest = () => {
     navigate('/test')
+  }
+
+  const deleteWord = (id) => {
+    const deleteConfirm = window.confirm("Are you want to delete the word?")
+    if(deleteConfirm){
+      setWords((words) => words.filter((item) => item.id !== id))
+      navigate(+0)
+    }
   }
 
   const addHistoryLearn = () => {
@@ -59,7 +67,7 @@ const Memorize = () => {
   return (
     <div className="memorize">
       <h4 className="sub-title">{selectedStep.step}</h4>
-      <SlickSlider words={selectedStep}/>
+      <SlickSlider words={selectedStep} del={deleteWord}/>
       {
         (selectedStep.length > 0) ?
           <button className="btn btn__big"

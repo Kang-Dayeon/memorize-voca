@@ -11,6 +11,7 @@ import 'slick-carousel/slick/slick-theme.css'
 const CustomSlide = (props) => {
   // ** props
   const itemValue = props.item
+  const del = props.del
 
   // ** state
   const [active, setActive] = useState(false)
@@ -27,12 +28,16 @@ const CustomSlide = (props) => {
         <p className="slide-contents__meaning">{itemValue.korean}</p>
         <p className="slide-contents__explanation">{itemValue.explanation}</p>
       </div>
+      {
+        itemValue.category === 'My Words' ? <button className="btn del" onClick={() => del(itemValue.id)}>X</button> : <></>
+      }
     </div>
   )
 }
 
 const SlickSlider = (props) => {
   const words = props.words
+  const del = props.del
 
   const settings = {
     dots: true,
@@ -48,7 +53,7 @@ const SlickSlider = (props) => {
         {
           (words.length > 0) ?
             words.map((item) => {
-              return <CustomSlide item={item}/>
+              return <CustomSlide item={item} del={del}/>
             }) :
             <div className="slide-contents__none">
               <FontAwesomeIcon icon={faFolderOpen} />
