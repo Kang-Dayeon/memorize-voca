@@ -10,7 +10,7 @@ import ContentWrapper from './components/layouts/ContentWrapper'
 import './assets/scss/common.scss'
 import React from 'react'
 
-function App() {
+const App: React.FC = () => {
   return (
     <React.StrictMode>
       <RecoilRoot>
