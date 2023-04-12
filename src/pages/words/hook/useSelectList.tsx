@@ -2,11 +2,12 @@ import {useEffect, useState} from 'react'
 
 export const useSelectList = () => {
   // ** state
-  const [data, setData] = useState(null)
-  const [selectedList, setSelectedList] = useState(null)
+  const [data, setData] = useState<any | null>(null)
+  const [selectedList, setSelectedList] = useState<any | null>(null)
 
   const handleSelectList = () => {
-    const list = []
+    const list: String[] = []
+
     for (let key in data) {
       list.push(data[key])
     }
