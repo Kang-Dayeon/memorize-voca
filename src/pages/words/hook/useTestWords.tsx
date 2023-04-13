@@ -14,13 +14,13 @@ export const useTestWords = () => {
   const {loginUser, setLoginUser} = useUser()
 
   // ** state
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [display, setDisplay] = useState(false)
-  const [passedWords, setPassedWords] = useState(null)
-  const [failedWords, setFailedWords] = useState(null)
-  const [randomAnswer, setRandomAnswer] = useState(null)
-  const [filterPassed, setFilterPassed] = useState(null)
-  const [filterFailed, setFilterFailed] = useState(null)
+  const [currentIndex, setCurrentIndex] = useState<number>(0)
+  const [display, setDisplay] = useState<boolean>(false)
+  const [passedWords, setPassedWords] = useState<object>([])
+  const [failedWords, setFailedWords] = useState<object>([])
+  const [randomAnswer, setRandomAnswer] = useState<object>([])
+  const [filterPassed, setFilterPassed] = useState<object>([])
+  const [filterFailed, setFilterFailed] = useState<object>([])
 
   // 테스트 내용 추가
   const addHistoryTest = () => {
@@ -84,26 +84,26 @@ export const useTestWords = () => {
       }
     })
     setDisplay(false)
-    setPassedWords(null)
-    setFailedWords(null)
+    setPassedWords([])
+    setFailedWords([])
   }
 
   // 시험끝나면
   const endExam = () => {
     addHistoryTest()
     setDisplay(false)
-    setPassedWords(null)
-    setFailedWords(null)
+    setPassedWords([])
+    setFailedWords([])
     navigate('/')
   }
 
   // 한국어 리스트 랜덤으로 뿌려주기
   // error: 정답 포함 5개만 뿌려줘야되는데 갯수가 다르게 뿌려짐
   const handleRandom = () => {
-    const randomArray = []
+    const randomArray: object = []
     randomArray.push(selectedStep[currentIndex].korean)
     for(let i = 0; i < 4; i++){
-      let randomNum = Math.floor(Math.random() * words.length)
+      let randomNum: number = Math.floor(Math.random() * words.length)
       if((randomArray.indexOf(randomNum) === -1)){
         randomArray.push(words[randomNum].korean)
       } else {
@@ -123,14 +123,14 @@ export const useTestWords = () => {
   }, [selectedStep])
 
   useEffect(() => {
-    if(passedWords !== null){
-      const filterHistoryPass = loginUser.historyTest.passed.filter((item) => {
+    if(passedWords.length > 0){
+      const filterHistoryPass:object = loginUser.historyTest.passed.filter((item) => {
         return !failedWords.some((other) => item.id === other.id)
       })
       setFilterPassed(filterHistoryPass)
     }
-    if(failedWords !== null){
-      const filterHistoryFail = loginUser.historyTest.failed.filter((item) => {
+    if(failedWords.length > 0){
+      const filterHistoryFail:object = loginUser.historyTest.failed.filter((item) => {
         return !passedWords.some((other) => item.id === other.id)
       })
       setFilterFailed(filterHistoryFail)
