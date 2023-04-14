@@ -24,14 +24,14 @@ const Steps = () => {
   // ** hook
   const {setData, selectedList} = useSelectList()
 
-  const handleNavigate = (key) => {
+  const handleNavigate = (key: string) => {
     navigate('/memorize/' + key)
   }
 
   useEffect(() => {
     if ((params.key) &&
       (words.filter((item) => item.category === params.key))) {
-      const filter = words.filter((item) => item.category === params.key)
+      const filter: object = words.filter((item) => item.category === params.key)
       setSelectedCategory(filter)
       setData(step)
     } else {
