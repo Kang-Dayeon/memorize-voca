@@ -20,7 +20,7 @@ const Memorize = () => {
     navigate('/test')
   }
 
-  const deleteWord = (id) => {
+  const deleteWord = (id:number) => {
     const deleteConfirm = window.confirm("Are you want to delete the word?")
     if(deleteConfirm){
       setWords((words) => words.filter((item) => item.id !== id))
@@ -71,7 +71,7 @@ const Memorize = () => {
       {
         (selectedStep.length > 0) ?
           <button className="btn btn__big"
-                  onClick={() => navigateTest(selectedStep)}>TEST
+                  onClick={() => navigateTest()}>TEST
           </button>
           : <></>
       }
