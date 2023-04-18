@@ -23,14 +23,14 @@ const Memorize = () => {
   const deleteWord = (id:number) => {
     const deleteConfirm = window.confirm("Are you want to delete the word?")
     if(deleteConfirm){
-      setWords((words) => words.filter((item) => item.id !== id))
+      setWords((words:any) => words.filter((item:any) => item.id !== id))
       navigate(+0)
     }
   }
 
   const addHistoryLearn = () => {
     if (selectedCategory.length > 0 && selectedStep.length > 0) {
-      setLoginUser((loginUser) => {
+      setLoginUser((loginUser:any) => {
         return {
           ...loginUser,
           historyLearn: [
@@ -53,9 +53,9 @@ const Memorize = () => {
 
   useEffect(() => {
     if ((params.key) &&
-      selectedCategory.filter((item) => item.step === params.key)) {
+      selectedCategory.filter((item:any) => item.step === params.key)) {
       const filterStep = selectedCategory.filter(
-        (item) => item.step === params.key)
+        (item:any) => item.step === params.key)
       setSelectedStep(filterStep)
     } else {
       navigate('/')

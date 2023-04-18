@@ -16,7 +16,7 @@ const WordCategory = () => {
   // ** hook
   const {setData, selectedList} = useSelectList()
 
-  const handleNavigate = (key) => {
+  const handleNavigate = (key:string) => {
     navigate('/steps/' + key)
   }
 
@@ -33,7 +33,7 @@ const WordCategory = () => {
         <ul className="list__wrap">
           {
             selectedList !== null ?
-              selectedList.map((item) => {
+              selectedList.map((item:any) => {
                 return (
                   <li className="list" onClick={() => handleNavigate(item)}>
                     <div className="list__title">

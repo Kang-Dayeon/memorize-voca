@@ -30,8 +30,8 @@ const Steps = () => {
 
   useEffect(() => {
     if ((params.key) &&
-      (words.filter((item) => item.category === params.key))) {
-      const filter: object = words.filter((item) => item.category === params.key)
+      (words.filter((item:any) => item.category === params.key))) {
+      const filter: object = words.filter((item:any) => item.category === params.key)
       setSelectedCategory(filter)
       setData(step)
     } else {
@@ -48,10 +48,10 @@ const Steps = () => {
         <ul className="list__wrap">
           {
             selectedList !== null ?
-              selectedList.map((item) => {
+              selectedList.map((item:any) => {
                 return (
                   <li className={`list list__round ${(loginUser.historyLearn.some(
-                    (list) => list.step === item && list.category ===
+                    (list:any) => list.step === item && list.category ===
                       params.key)) ? 'active' : ''}`}
                       onClick={() => handleNavigate(item)}>
                     <p className="list__title">{item}</p>

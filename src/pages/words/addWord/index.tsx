@@ -12,7 +12,7 @@ import {useSelectList} from '../hook/useSelectList'
 import {useWords} from '../store/useWords'
 import {category, step} from '../../../database/words'
 
-const AddWord = ({display, toggleDisplay}) => {
+const AddWord = ({display, toggleDisplay}: {display: any, toggleDisplay: any}) => {
   const {words, setWords} = useWords()
 
   // ** react library
@@ -34,8 +34,8 @@ const AddWord = ({display, toggleDisplay}) => {
   // ** hook
   const {setData, selectedList} = useSelectList()
 
-  const addWord = (data: object) => {
-    if(words.some((item) => item.english === data.english)){
+  const addWord = (data: any) => {
+    if(words.some((item: any) => item.english === data.english)){
       alert('a word that already exists')
     } else {
       const newWord: object = {
@@ -46,7 +46,7 @@ const AddWord = ({display, toggleDisplay}) => {
         korean: data.korean,
         explanation: data.explanation,
       }
-      setWords((words) => {
+      setWords((words: any) => {
         return [
           ...words,
           newWord,
@@ -56,7 +56,7 @@ const AddWord = ({display, toggleDisplay}) => {
     toggleDisplay()
   }
 
-  const handleError = (errors) => {
+  const handleError = (errors:any) => {
     errors.level ? alert(errors.level.message)
       : errors.english ? alert(errors.english.message)
         : errors.korean ? alert(errors.korean.message)
@@ -93,7 +93,7 @@ const AddWord = ({display, toggleDisplay}) => {
                     })}>
               {
                 selectedList !== null ?
-                  selectedList.map((item) => {
+                  selectedList.map((item: any) => {
                     return (
                       <option value={item}>{item}</option>
                     )
