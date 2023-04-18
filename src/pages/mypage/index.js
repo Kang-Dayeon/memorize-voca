@@ -25,10 +25,6 @@ const MyPage = () => {
     navigate('/result/' + key)
   }
 
-  const navigateFail = () => {
-    navigate('/fail')
-  }
-
   const navigateRelearning = () => {
     navigate('/relearning')
   }

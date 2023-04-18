@@ -22,22 +22,23 @@ const AddWord = ({display, toggleDisplay}) => {
     reset,
     formState,
     formState: { isSubmitSuccessful }
-  } = useForm({defaultValues: {
+  } = useForm({
+    defaultValues: {
       english: '',
       korean: '',
       level: step.level01,
       explanation: '',
-    }})
+    }
+  })
 
   // ** hook
   const {setData, selectedList} = useSelectList()
 
-  const addWord = (data) => {
+  const addWord = (data: object) => {
     if(words.some((item) => item.english === data.english)){
       alert('a word that already exists')
-      console.log(words.filter((item) => item.english === data.english))
     } else {
-      const newWord = {
+      const newWord: object = {
         id: words[words.length - 1].id + 1,
         category: category.myWords,
         step: data.level,
