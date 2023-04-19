@@ -7,7 +7,7 @@ import {faUser, faHouse, faSquarePlus} from '@fortawesome/free-solid-svg-icons'
 // ** popup
 import AddWords from '../../pages/words/addWord'
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   const [display, setDisplay] = useState(false)
   const toggleDisplay = () => {
     setDisplay(!display)
@@ -27,9 +27,9 @@ const Navigation = () => {
             </Link>
           </li>
           <li className="anb-list__item" onClick={() => toggleDisplay()}>
-            <Link>
+            <a>
               <FontAwesomeIcon icon={faSquarePlus}/>
-            </Link>
+            </a>
           </li>
         </ul>
         <AddWords display={display} toggleDisplay={toggleDisplay}/>

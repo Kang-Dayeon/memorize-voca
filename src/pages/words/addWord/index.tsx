@@ -12,7 +12,7 @@ import {useSelectList} from '../hook/useSelectList'
 import {useWords} from '../store/useWords'
 import {category, step} from '../../../database/words'
 
-const AddWord = ({display, toggleDisplay}: {display: any, toggleDisplay: any}) => {
+const AddWord = ({display, toggleDisplay}: {display: boolean}) => {
   const {words, setWords} = useWords()
 
   // ** react library
@@ -103,7 +103,7 @@ const AddWord = ({display, toggleDisplay}: {display: any, toggleDisplay: any}) =
           </div>
           <div className="input__box">
             <label htmlFor="en">English</label>
-            <input className="input" name="english" type="text" id="en"
+            <input className="input" type="text" id="en"
                    {...register('english', {
                      required: 'Write English words',
                      pattern: {
@@ -115,7 +115,7 @@ const AddWord = ({display, toggleDisplay}: {display: any, toggleDisplay: any}) =
           </div>
           <div className="input__box">
             <label htmlFor="ko">Korean</label>
-            <input className="input" name="korean" type="text" id="ko"
+            <input className="input" type="text" id="ko"
                    {...register('korean', {
                      required: 'Write korean mean',
                      pattern: {
@@ -127,7 +127,7 @@ const AddWord = ({display, toggleDisplay}: {display: any, toggleDisplay: any}) =
           </div>
           <div className="input__box">
             <label htmlFor="explanation">Explanation</label>
-            <input className="input" name="explanation" type="text"
+            <input className="input" type="text"
                    id="explanation"
                    {...register('explanation', {
                      required: 'Write words meaning',
