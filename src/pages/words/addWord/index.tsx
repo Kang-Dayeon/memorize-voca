@@ -12,7 +12,7 @@ import {useSelectList} from '../hook/useSelectList'
 import {useWords} from '../store/useWords'
 import {category, step} from '../../../database/words'
 
-const AddWord = ({display, toggleDisplay}: {display: boolean}) => {
+const AddWord = ({display, toggleDisplay}) => {
   const {words, setWords} = useWords()
 
   // ** react library
