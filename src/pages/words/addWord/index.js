@@ -34,11 +34,11 @@ const AddWord = ({display, toggleDisplay}) => {
   // ** hook
   const {setData, selectedList} = useSelectList()
 
-  const addWord = (data: any) => {
-    if(words.some((item: any) => item.english === data.english)){
+  const addWord = (data) => {
+    if(words.some((item) => item.english === data.english)){
       alert('a word that already exists')
     } else {
-      const newWord: object = {
+      const newWord = {
         id: words[words.length - 1].id + 1,
         category: category.myWords,
         step: data.level,
@@ -46,7 +46,7 @@ const AddWord = ({display, toggleDisplay}) => {
         korean: data.korean,
         explanation: data.explanation,
       }
-      setWords((words: any) => {
+      setWords((words) => {
         return [
           ...words,
           newWord,
@@ -56,7 +56,7 @@ const AddWord = ({display, toggleDisplay}) => {
     toggleDisplay()
   }
 
-  const handleError = (errors:any) => {
+  const handleError = (errors) => {
     errors.level ? alert(errors.level.message)
       : errors.english ? alert(errors.english.message)
         : errors.korean ? alert(errors.korean.message)
@@ -93,7 +93,7 @@ const AddWord = ({display, toggleDisplay}) => {
                     })}>
               {
                 selectedList !== null ?
-                  selectedList.map((item: any) => {
+                  selectedList.map((item) => {
                     return (
                       <option value={item}>{item}</option>
                     )

@@ -7,7 +7,7 @@ import {faUser, faHouse, faSquarePlus} from '@fortawesome/free-solid-svg-icons'
 // ** popup
 import AddWords from '../../pages/words/addWord'
 
-const Navigation: React.FC = () => {
+const Navigation = () => {
   const [display, setDisplay] = useState(false)
   const toggleDisplay = () => {
     setDisplay(!display)

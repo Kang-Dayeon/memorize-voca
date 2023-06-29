@@ -45,7 +45,7 @@ const Test = () => {
         <ul className="list__wrap">
           {
             randomAnswer !== null ?
-              randomAnswer.map((list:any) => {
+              randomAnswer.map((list) => {
                 return (
                   <li className="list list__round"
                       onClick={() => handleTest(list)}>
@@ -68,7 +68,7 @@ const Test = () => {
         </div>
         <ul className="list__wrap">
           {
-            selectedStep.map((list: any) => {
+            selectedStep.map((list) => {
               return (
                 <li className={`list ${list.passedTest ? 'right' : 'wrong'}`}>
                   <div className="list__title">

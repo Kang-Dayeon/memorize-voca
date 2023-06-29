@@ -16,8 +16,8 @@ export const useTestWords = () => {
   // **type
 
   // ** state
-  const [currentIndex, setCurrentIndex] = useState<number>(0)
-  const [display, setDisplay] = useState<boolean>(false)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [display, setDisplay] = useState(false)
   const [passedWords, setPassedWords] = useState([])
   const [failedWords, setFailedWords] = useState([])
   const [randomAnswer, setRandomAnswer] = useState([])
@@ -27,7 +27,7 @@ export const useTestWords = () => {
   // 테스트 내용 추가
   const addHistoryTest = () => {
     if(loginUser){
-      setLoginUser((loginUser:any) => {
+      setLoginUser((loginUser) => {
         return {
           ...loginUser,
           historyTest: {
@@ -46,7 +46,7 @@ export const useTestWords = () => {
   }
 
   // 테스트 진행
-  const handleTest = (answer:any) => {
+  const handleTest = (answer) => {
     if (selectedStep.length - 1 > currentIndex) {
       setCurrentIndex(currentIndex => currentIndex + 1)
       handleRandom()
@@ -55,7 +55,7 @@ export const useTestWords = () => {
       setDisplay(true)
     }
     setSelectedStep(
-      selectedStep.map((item:any) => {
+      selectedStep.map((item) => {
         if ((selectedStep[currentIndex].korean === item.korean) &&
           (item.korean === answer)) {
           return {
@@ -79,7 +79,7 @@ export const useTestWords = () => {
 
   // 재시험시
   const makeupExam = () => {
-    selectedStep.map((item:any) => {
+    selectedStep.map((item) => {
       return {
         ...item,
         passedTest: false,
@@ -102,10 +102,10 @@ export const useTestWords = () => {
   // 한국어 리스트 랜덤으로 뿌려주기
   // error: 정답 포함 5개만 뿌려줘야되는데 갯수가 다르게 뿌려짐
   const handleRandom = () => {
-    const randomArray:any = []
+    const randomArray = []
     randomArray.push(selectedStep[currentIndex].korean)
     for(let i = 0; i < 4; i++){
-      let randomNum: number = Math.floor(Math.random() * words.length)
+      let randomNum = Math.floor(Math.random() * words.length)
       if((randomArray.indexOf(randomNum) === -1)){
         randomArray.push(words[randomNum].korean)
       } else {
@@ -119,21 +119,21 @@ export const useTestWords = () => {
   useEffect(() => {
     if (selectedStep) {
       handleRandom()
-      setPassedWords(selectedStep.filter((item:any) => item.passedTest))
-      setFailedWords(selectedStep.filter((item:any) => !item.passedTest))
+      setPassedWords(selectedStep.filter((item) => item.passedTest))
+      setFailedWords(selectedStep.filter((item) => !item.passedTest))
     }
   }, [selectedStep])
 
   useEffect(() => {
     if(passedWords.length > 0){
-      const filterHistoryPass = loginUser.historyTest.passed.filter((item:any) => {
-        return !failedWords.some((other:any) => item.id === other.id)
+      const filterHistoryPass = loginUser.historyTest.passed.filter((item) => {
+        return !failedWords.some((other) => item.id === other.id)
       })
       setFilterPassed(filterHistoryPass)
     }
     if(failedWords.length > 0){
-      const filterHistoryFail = loginUser.historyTest.failed.filter((item:any) => {
-        return !passedWords.some((other:any) => item.id === other.id)
+      const filterHistoryFail = loginUser.historyTest.failed.filter((item) => {
+        return !passedWords.some((other) => item.id === other.id)
       })
       setFilterFailed(filterHistoryFail)
     }
