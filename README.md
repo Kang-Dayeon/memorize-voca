@@ -5,8 +5,8 @@ Memorize VOCA is made to learn English vocabulary.
 
 You can learn vocabulary by level in the category and test the learned vocabulary.
 
-<img width="80%" src="https://github.com/Kang-Dayeon/memorize-voca/assets/94333816/c7c95094-3bcf-4633-a047-d76104a6a9a2"/>
-<img width="80%" src="https://github.com/Kang-Dayeon/memorize-voca/assets/94333816/9bb7b3e9-963f-4709-a530-f34e7357a058"/>
+<img width="100%" src="https://github.com/Kang-Dayeon/memorize-voca/assets/94333816/c7c95094-3bcf-4633-a047-d76104a6a9a2"/>
+<img width="100%" src="https://github.com/Kang-Dayeon/memorize-voca/assets/94333816/9bb7b3e9-963f-4709-a530-f34e7357a058"/>
 
 ## Stacks
 * Environment
