@@ -14,9 +14,9 @@ const SignIn = () => {
 
   const handleLogin = (data) => {
     if (!users.some((user) => user.loginId === data.loginId)) {
-      alert('아이디가 일치하지 않습니다.')
+      alert('IDが一致しません。')
     } else if (!users.some((user) => user.password === data.password)) {
-      alert('비밀번호가 일치하지 않습니다')
+      alert('パスワードが一致しません。')
     } else {
       const find = users.find(
         (user) => (user.loginId === data.loginId) &&
