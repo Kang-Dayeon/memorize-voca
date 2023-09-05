@@ -1,6 +1,6 @@
 // ** react
 import Router from './router/Router'
-import {BrowserRouter} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 // ** recoil
 import {RecoilRoot} from 'recoil'
 // ** component
@@ -14,12 +14,12 @@ const App = () => {
   return (
     <React.StrictMode>
       <RecoilRoot>
-        <BrowserRouter>
+        <HashRouter>
           <Header/>
           <ContentWrapper>
             <Router/>
           </ContentWrapper>
-        </BrowserRouter>
+        </HashRouter>
       </RecoilRoot>
     </React.StrictMode>
   )
