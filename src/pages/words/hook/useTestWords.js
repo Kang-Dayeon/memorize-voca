@@ -56,40 +56,40 @@ export const useTestWords = () => {
     }
 
     // forEach를 사용하여 각 항목 업데이트
-    const updatedSelectedStep = [...selectedStep];
-    updatedSelectedStep.map((item, index) => {
-      return {
-        ...item,
-        passedTest:
-          index === currentIndex &&
-          item.korean === answer &&
-          selectedStep[currentIndex].korean === answer,
-      };
-    });
+    // const updatedSelectedStep = [...selectedStep];
+    // updatedSelectedStep.map((item, index) => {
+    //   return {
+    //     ...item,
+    //     passedTest:
+    //       index === currentIndex &&
+    //       item.korean === answer &&
+    //       selectedStep[currentIndex].korean === answer,
+    //   };
+    // });
+    //
+    // setSelectedStep(updatedSelectedStep);
 
-    setSelectedStep(updatedSelectedStep);
-
-    // setSelectedStep(
-    //   selectedStep.map((item) => {
-    //     if ((selectedStep[currentIndex].korean === item.korean) &&
-    //       (item.korean === answer)) {
-    //       return {
-    //         ...item,
-    //         passedTest: true,
-    //       }
-    //     } else if ((selectedStep[currentIndex].korean === item.korean) &&
-    //       (item.korean !== answer)) {
-    //       return {
-    //         ...item,
-    //         passedTest: false,
-    //       }
-    //     } else {
-    //       return {
-    //         ...item,
-    //       }
-    //     }
-    //   }),
-    // )
+    setSelectedStep(
+      selectedStep.map((item) => {
+        if ((selectedStep[currentIndex].korean === item.korean) &&
+          (item.korean === answer)) {
+          return {
+            ...item,
+            passedTest: true,
+          }
+        } else if ((selectedStep[currentIndex].korean === item.korean) &&
+          (item.korean !== answer)) {
+          return {
+            ...item,
+            passedTest: false,
+          }
+        } else {
+          return {
+            ...item,
+          }
+        }
+      }),
+    )
   }
 
   // 재시험시
@@ -117,27 +117,32 @@ export const useTestWords = () => {
   // 한국어 리스트 랜덤으로 뿌려주기
   const handleRandom = () => {
     const randomArray = []
-    const answer = selectedStep[currentIndex].korean
     randomArray.push(selectedStep[currentIndex].korean)
-    while (randomArray.length < 4){
-      const randomNum = Math.floor(Math.random() * words.length)
-      const randomWord = words[randomNum].korean
-
-      if(!randomArray.includes(randomWord) && randomWord !== answer){
-        randomArray.push(randomWord)
+    for(let i = 0; i < 4; i++){
+      let randomNum = Math.floor(Math.random() * words.length)
+      if((randomArray.indexOf(randomNum) === -1)){
+        randomArray.push(words[randomNum].korean)
+      } else {
+        i--
       }
     }
-    // for(let i = 0; i < 4; i++){
-    //   let randomNum = Math.floor(Math.random() * words.length)
-    //   if((randomArray.indexOf(randomNum) === -1)){
-    //     randomArray.push(words[randomNum].korean)
-    //   } else {
-    //     i--
+    randomArray.sort(() => Math.random() - 0.5)
+    setRandomAnswer(randomArray)
+
+    // const answer = selectedStep[currentIndex].korean
+    // randomArray.push(selectedStep[currentIndex].korean)
+    // while (randomArray.length < 4){
+    //   const randomNum = Math.floor(Math.random() * words.length)
+    //   const randomWord = words[randomNum].korean
+    //
+    //   if(!randomArray.includes(randomWord) && randomWord !== answer){
+    //     randomArray.push(randomWord)
     //   }
     // }
-    const randomPosition = Math.floor(Math.random() * 5)
-    randomArray.splice(randomPosition, 0, answer)
-    setRandomAnswer(randomArray)
+    //
+    // const randomPosition = Math.floor(Math.random() * 5)
+    // randomArray.splice(randomPosition, 0, answer)
+    // setRandomAnswer(randomArray)
   }
 
   useEffect(() => {
