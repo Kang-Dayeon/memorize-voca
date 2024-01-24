@@ -50,7 +50,7 @@ const Steps = () => {
             selectedList !== null ?
               selectedList.map((item) => {
                 return (
-                  <li className={`list list__round ${(loginUser.historyLearn.some(
+                  <li className={`list list__round ${(loginUser.historyLearn && loginUser.historyLearn.some(
                     (list) => list.step === item && list.category ===
                       params.key)) ? 'active' : ''}`}
                       onClick={() => handleNavigate(item)}>
