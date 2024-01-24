@@ -50,7 +50,7 @@ const MyPage = () => {
             </div>
           </li>
           {
-            loginUser.historyLearn.length > 0 ?
+            loginUser.historyLearn && loginUser.historyLearn.length > 0 ?
               <li className="list">
                 <div className="list__title">
                   <span className="list__icon">
@@ -100,7 +100,7 @@ const MyPage = () => {
       <div className="card card__gray">
         <ul className="list__wrap">
           {
-            loginUser ?
+            loginUser && loginUser.historyLearn ?
               loginUser.historyLearn.map((item) => {
                 return (
                   <li className="list">
